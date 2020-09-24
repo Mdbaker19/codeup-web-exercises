@@ -57,6 +57,8 @@
 
 
 <script>
+    "use strict";
+    //external file added, can see in the console
     /* **************************************
               THIS IS AN INLINE EXAMPLE
      ****************************************/
@@ -64,12 +66,13 @@
     // Your javascript code goes in this script tag!
 
     //TODO: Console.log "Hello from inline javascript"
-console.log("Hello from inline javascript")
+    console.log("Hello from inline javascript");
 </script>
 
 <!--TODO: ADD EXTERNAL JS-->
-
+<script src ="JS/external_js.js"></script>
 <script>
+    "use strict";
     // This is for the user interactions
 
     //TODO: Comment out previous scripts
@@ -80,10 +83,10 @@ console.log("Hello from inline javascript")
 
 
     //TODO TOGETHER: Write an alert ---> alert("Message goes here.");
-
+    alert("Welcome to the test site");
 
     //TODO: Write an alert with an alert message
-
+    alert("You will be questioned");
 
 
     /*  *******************************
@@ -92,20 +95,23 @@ console.log("Hello from inline javascript")
 
 
     //TODO TOGETHER: Write a confirm interaction and console.log the result
-
+    let confirmAnswer = confirm("Do you know where you are?");
+    console.log(confirmAnswer);
 
     // TODO: Select the OK option. View the result. Select the cancel option. View the result.
-
+    // ok returns true, cancel returns false into the console;
 
     /*******************************
      Prompts
      ******************************/
     // TODO TOGETHER: Write a prompt interaction. Console.log the result
-
+    let firstResponse = prompt("Are you willing to share some info?");
+    console.log(firstResponse);
 
 
     // TODO: Write an additional prompt. Console.log the result
-
+    let response = prompt("What is your name?");
+    console.log(response);
 
 
 
