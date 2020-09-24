@@ -1,6 +1,7 @@
 You have rented some movies for your kids: The little mermaid (for 3 days), Brother Bear (for 5 days, they love it), and Hercules (1 day, you don't know yet if they're going to like it). If price for a movie per day is $3, how much will you have to pay?
 function sum(x, y) {
 	return x + y;
+
 }
 function getTotal(array) {
 	var newArray = array.map((element) => element *= 3);
@@ -10,4 +11,23 @@ function getTotal(array) {
 //Different solution ??? which would work in a given situation???
 function movieTotal(x, y, z) {
 	return ((x * 3) + (y * 3) + (z * 3));
+}
+
+Suppose you're working as a contractor for 3 companies: Google, Amazon and Facebook, they pay you a different rate per hour. Google pays $400, Amazon $380, and Facebook $350. How much will you receive in payment for this week? You worked 10 hours for Facebook, 6 hours for Google and 4 hours for Amazon.
+Two different ways depending on situation (???)
+function workPayment() {
+	var googleHours = prompt("how many hours did you work at Google?");
+	var amazonHours = prompt("how many hours did you work at Amazon?");
+	var facbookHours = prompt("how many hours did you work at Facebook?");
+	return ((googleHours * 400) + (amazonHours * 380) + (facbookHours * 350));
+}
+
+
+function totalPay(workplace, x) {
+	const amount = prompt("How much do you make per hour?");
+	if(workplace === "Google"){
+		return (x * amount);
+	} else if(workplace === "Amazon") {
+		return (x * amount);
+	} else return (x * amount);
 }
