@@ -31,3 +31,9 @@ function totalPay(workplace, x) {
 		return (x * amount);
 	} else return (x * amount);
 }
+A student can be enrolled in a class only if the class is not full and the class schedule does not conflict with her current schedule.
+function enroll(classStatus, classSchedule) {
+	if(classStatus !== "full" && classSchedule !== "conflicts"){
+		console.log("can enroll");
+	} else console.log("cannot enroll");
+}
