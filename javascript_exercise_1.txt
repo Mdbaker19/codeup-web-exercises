@@ -1,0 +1,13 @@
+You have rented some movies for your kids: The little mermaid (for 3 days), Brother Bear (for 5 days, they love it), and Hercules (1 day, you don't know yet if they're going to like it). If price for a movie per day is $3, how much will you have to pay?
+function sum(x, y) {
+	return x + y;
+}
+function getTotal(array) {
+	var newArray = array.map((element) => element *= 3);
+	return newArray.reduce(sum);
+}
+
+//Different solution ??? which would work in a given situation???
+function movieTotal(x, y, z) {
+	return ((x * 3) + (y * 3) + (z * 3));
+}
