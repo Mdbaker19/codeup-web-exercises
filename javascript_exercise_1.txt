@@ -37,3 +37,14 @@ function enroll(classStatus, classSchedule) {
 		console.log("can enroll");
 	} else console.log("cannot enroll");
 }
+
+A product offer can be applied only if a person buys more than 2 items,
+and the offer has not expired. Premium members do not need to buy a specific amount of products
+
+function offerAvailibilty(status, offer, amount){
+	if(status === "Premium" && offer !== "expired"){
+		console.log("product offer aplied");
+	} else if(amount >= 2 && offer !== "expired"){
+		console.log("product offer applied");
+	} else console.log("buy more items or become a premium member");
+}
