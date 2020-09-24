@@ -48,3 +48,29 @@ function offerAvailibilty(status, offer, amount){
 		console.log("product offer applied");
 	} else console.log("buy more items or become a premium member");
 }
+
+var username = 'codeup';
+var password = 'notastrongpassword';
+Create a variable that holds a boolean value for each of the following conditions:
+
+the password must be at least 5 characters
+the password must not include the username
+the username must be no more than 20 characters
+neither the username or password can start or end with whitespace
+
+May of not really done this right, at the time i did not know what it was asking
+
+function checkQualityOfUnAndPass(username, password) {
+	if(password.length < 5) {
+		console.log("invalid password");
+	} else console.log("password checked");
+		if(password.includes(username) === true){
+			console.log("invalid password");
+		} else console.log("password checked");
+			if(username.length < 20) {
+				console.log("username checked")
+			} else console.log("invalid username by length");
+				if(username.charAt(0) === " " || password.charAt(0) === " "){
+					console.log("invalid input, no space allowed");
+				} else console.log("username and password checked");
+}
