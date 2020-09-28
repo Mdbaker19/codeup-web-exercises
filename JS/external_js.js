@@ -1,21 +1,30 @@
 "use strict";
 console.log("Hello from external JavaScript");
 
-alert("Welcome to my Website!");
-var color = prompt("What is your favorite color? hint: pick blue");
-if(color === "blue"){
-    alert("Great, " + color + " is my favorite color too");
-} else alert("Great " + color + " is a color");
+// var startMovie = document.getElementById("movie");
+// var startWork = document.getElementById("work");
+// var startEnroll = document.getElementById("class");
+// var startOffer = document.getElementById("offer");
 
-function rentedMovies(){
+//alert("Welcome to my Website!");
+//var color = prompt("What is your favorite color? hint: pick blue");
+// if(color === "blue"){
+//     alert("Great, " + color + " is my favorite color too");
+// } else alert("Well " + color + " is a color");
+
+// startMovie.addEventListener("click", rentedMovies()
+// {
+function movieRental(){
     var rate = Number(prompt("how much does it cost per day for a movie?"))
     var lm = Number(prompt("How long did you rent little mermaid?"));
     var bb = Number(prompt("How long did you rent brother bear?"));
     var hrc = Number(prompt("how long did you rent hercules?"));
-    var total = (lm * rate) + (bb * rate) + (hrc * rate);
-    alert("You owe: $" + total);
-}
+    var mTotal = (lm * rate) + (bb * rate) + (hrc * rate);
+    alert("You owe: $" + mTotal);//adding a to Fixed(2) looks nicer
+};
 
+//having issues linking this button to call the function 
+//startWork.addEventListener("click", workPay(){
 function workPay(){
     var googleHours = Number(prompt("How many hours did you work at google?"));
     var gpay = Number(prompt("what is the pay rate?"));
@@ -25,7 +34,7 @@ function workPay(){
     var fbpay = Number(prompt("what is the pay rate?"));
     var total = (googleHours * gpay) + (amznHours * apay) + (fbHours * fbpay);
     alert("you made: $" + total);
-}
+};
 
 function enroll(){
     var maxClass = Number(prompt("what is the max size of this class"));
