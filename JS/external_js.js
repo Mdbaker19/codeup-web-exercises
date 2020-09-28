@@ -1,2 +1,8 @@
 "use strict";
-console.log("external file also linked(?)");
+console.log("Hello from external JavaScript");
+
+alert("Welcome to my Website!");
+var color = prompt("What is your favorite color? hint: pick blue");
+if(color === "blue"){
+    alert("Great, blue is my favorite color too");
+}
