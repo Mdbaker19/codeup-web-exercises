@@ -15,7 +15,7 @@
         return "Hello, " + name + "!";
     }
 
-    console.log("matt");
+    console.log(sayHello("matt"));
 
     /**
      * TODO:
