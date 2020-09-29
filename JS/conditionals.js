@@ -18,15 +18,85 @@
 
 // ================ IF STATEMENT EXAMPLES ================
 //TODO Together: Show a specific navbar if user is admin
+
+    function showNavBar(status) {
+        var isAdmin = confirm("Are you an admin?");
+        if(isAdmin){
+            //display navbar
+            console.log("navbar");
+        } else console.log("normal site");
+    }
+    //console.log((showNavBar())); if yes console log navbar will show
 //TODO Together: Send a 20% off coupon if its users birthday
+
+    function birthday(day){
+        const today = new Date();
+        var userBDay = prompt("when is your birthday");
+        if(userBDay === today){
+            console.log("here is your birthday coupon!! Happy birthday");
+        } else console.log("nothing");
+    }
+    //console.log((birthday()));
 //TODO Together: Write an if statement that alerts "It's raining" if isRainy is true
+
+    function weather(){
+        var isRaining = true;
+        if(isRaining){
+            alert("It is raining!");
+        } else alert("Have a nice day");
+    }
+
+    //console.log((weather()));
+
 //TODO Together: Write an if statement that alerts the user whether or not they have enough money to buy a new item. Assume there are no hidden fees or taxes.
+
+    function canBuy() {
+        let money = Number(prompt("how much money do you have?"));
+        let cost = Number(prompt("how much does the item cost"));
+        const canAfford = money > cost;
+        if(canAfford) {
+            alert("you have enough money");
+        } else alert("you can not afford this");
+    }
+
+    //console.log((canBuy()));
 
 
 //TODO: Write an if statement that alerts "Sorry, game over" if numberOfLives is 0
+
+    function checkLives(lives){
+        let gameOver;
+        gameOver = (lives === 0);
+        if(gameOver){
+            alert("game is over");
+        } else console.log("keep playing");
+    }
+
+    console.log(checkLives(2));
+    //console.log(checkLives(0));
+
 //TODO: Write an if statement that alerts "It's snowing!" if weather is equal to "snowing"
+
+    function isSnow(){
+        let snowing = true;
+        if(snowing){
+            alert("It's snowing");
+        } else console.log("Have a nice day");
+    }
+
+    console.log(isSnow());
+
 //TODO: Write an if statement that alerts true if numberInput is greater than but not equal to 10
 
+    function compareToTen(num){
+        const max = 10;
+        if(num > max){
+            alert("number is greater than 10");
+        } else console.log("number not greater than 10");
+    }
+
+    //console.log(compareToTen(8));
+    console.log(compareToTen(11));
 
 //TODO: EXTRA BONUS - Refactor each of the previous statements as functions.
 
