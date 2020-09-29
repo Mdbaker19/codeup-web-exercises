@@ -1,6 +1,15 @@
 This will be practice for re-uploading to git hub
 Upload practice again
 
+<<<<<<< HEAD
+git branch test
+=======
 this is an example of test-bugfix branching
 
 am i in test bugfix?
+>>>>>>> 83b7b1c28c2623ff67afcd5cabdee2a9ae8c19f1
+
+
+git merge practice: in master right now
+
+git merge practice: in test navbar right now
