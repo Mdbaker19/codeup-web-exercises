@@ -361,14 +361,38 @@ console.log(weatherMessage);
 
 //TODO: Write a switch statement that evaluates weather as the condition. Check for "rainy", "sunny", "snow", and a default case.
 
-
+switch(weather){
+    case "rainy":
+        alert("it is raining");
+        break;
+    case "sunny":
+        alert("it is sunny");
+        break;
+    case "snow":
+        alert("it is snowing");
+        break;
+    default:
+        alert("remind me what the weather is right now please");
+        break;
+}
 
 
 
 
 //TODO: Rewrite the intersection function from earlier as a switch statement.
+    var lightColor = "green";
 
-
+switch (lightColor){
+    case "green":
+        alert("proceed");
+        break;
+    case "yellow":
+        alert("proceed with caution");
+        break;
+    case "red":
+        alert("stop before intersection");
+        break;
+}
 
 
 
