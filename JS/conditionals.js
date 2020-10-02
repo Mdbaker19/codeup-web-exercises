@@ -129,23 +129,19 @@
         return totalAmount - (totalAmount * (rate/100));
     }
 
-
     /**
      * TODO:
-     * Uncomment the line below to generate a random number between 0 and 6.
+     * Uncomment the line below to generate a random number between 0 and 5.
      * Prompt the user for their total bill, then use your `calculateTotal` function
      * and alerts to display to the user what their lucky number was, what their
      * price before the discount was, and what their price after the discount is.
      */
      //Generate a random number between 0 and 5
 
-    var luckyNumber = Math.floor(Math.random() * 5);
+    var luckyNumber = Math.floor(Math.random() * 6);
     var totalBill = Number(prompt("What was your total bill?"));
     console.log(luckyNumber);
     alert(calculateTotal(luckyNumber, totalBill));
-
-
-
 
     /**
      * TODO:
@@ -178,17 +174,15 @@
 
     function ifNumIsEvenOrOdd(){
         let enterNum = confirm("would you like to enter a number?");
-        let userNum = Number(prompt("Enter your number"));
+        let userNum = parseFloat(prompt("Enter your number"));
         if(enterNum){
-            if(typeof userNum === "number"){
+            if(isNaN(userNum) === false){
                 alert("your number + 100 is: " + (userNum + 100));
                 alert("your number is: " + isEven(userNum));
                 alert("your number is: " + isPositive(userNum));
             } else alert("not a valid number entry");
-        }
+        } else alert("no problem");
     }
 
     ifNumIsEvenOrOdd();
-
-
 })();

@@ -248,12 +248,19 @@ function trafficLight(color){
         return ("proceed through intersection")
     } else if (color === "yellow") {
         if (isCarInFront) {
+
             if (carStoppedFirst) {
+
                 return ("Stop behind stopping vehicle");
-            } else return ("Stop before intersection");
+
+            } else {
+                return ("Stop before intersection")
+            }
         } else {
             if (canGoThrough) {
+
                 return ("you better hurry!!");
+
             } return ("Stop before intersection");
         }
     }
