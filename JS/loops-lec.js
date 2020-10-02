@@ -9,11 +9,20 @@
 
 //TODO TOGETHER: Create a while loop that counts up to 10 (non-inclusive) by 1
 // (0, 1, 2...9)
-
+// let i = 0;
+// while(i < 10){
+//     console.log("count up to '10' -- " + i);
+//     i++;
+// }
 
 
 //TODO TOGETHER: Create a while loop that counts down from 20 to 0 (inclusive) by 1
 // (20, 19, 18...0)
+let i = 20;
+while (i >= 0){
+    console.log("countdown" + i);
+    i--;
+}
 
 
 
