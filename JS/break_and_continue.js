@@ -64,7 +64,6 @@ function skipNum(){
 // }while(allCones > 0);
 
 do{
-
     let conesSold = Math.floor(Math.random() * 5) + 1;
     console.log(allCones);
     if(allCones === 0){
