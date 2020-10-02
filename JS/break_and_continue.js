@@ -68,7 +68,6 @@ do{
     let conesSold = Math.floor(Math.random() * 5) + 1;
     console.log(allCones);
     if(allCones === 0){
-        allCones -= conesSold;
         console.log("Yay! I sold them all!");
     } else if(allCones < conesSold){
         console.log("cannot sell you " + conesSold + " I only have " + allCones);
