@@ -5,6 +5,7 @@
 //     }
 // }
 // showMultiplicationTable(7);
+//
 
 // function isEvenOrOdd(x){
 //     if(x%2===0){
