@@ -178,14 +178,14 @@
 
     function ifNumIsEvenOrOdd(){
         let enterNum = confirm("would you like to enter a number?");
-        let userNum = Number(prompt("Enter your number"));
+        let userNum = parseFloat(prompt("Enter your number"));
         if(enterNum){
-            if(typeof userNum === "number"){
+            if(isNaN(userNum) === false){
                 alert("your number + 100 is: " + (userNum + 100));
                 alert("your number is: " + isEven(userNum));
                 alert("your number is: " + isPositive(userNum));
             } else alert("not a valid number entry");
-        }
+        } else alert("no problem");
     }
 
     ifNumIsEvenOrOdd();
