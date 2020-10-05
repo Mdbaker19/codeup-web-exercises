@@ -1,6 +1,6 @@
-// for(let n = 0; n < 10000000; n++){
-//     narcissisticNum(n);
-// }
+for(let n = 0; n < 10000000; n++){
+    narcissisticNum(n);
+}
 
 function narcissisticNum(j) {
         let output = [];
