@@ -1,4 +1,4 @@
-// for(let n = 0; n < 5000000; n++){
+// for(let n = 0; n < 10000000; n++){
 //     narcissisticNum(n);
 // }
 
@@ -25,20 +25,23 @@ function narcissisticNum(j) {
 // to 800k is 21 numbers
 // to 3mil is 22 numbers
 // to 5mil is 23 numbers (takes like 4 seconds ha)
+// to 10mil is 25th
 //0-9
 // 153
 // 370
 // 371
 // 407
-// 1634
-// 8208
-// 9474
-// 54748
-// 92727
-// 93084
-// 548834
-// 1741725
-// 4210818
+// 1,634
+// 8,208
+// 9,474
+// 54,748
+// 92,727
+// 93,084
+// 548,834
+// 1,741,725
+// 4,210,818
+// 9,800,817
+// 9,926,315
 
 //how to do this without a for loop where the condition number is just adjusted to a theoretically infinite number ???
 
@@ -168,7 +171,7 @@ function narcissisticNum(j) {
 //     let sum = each.reduce((a, b) => a + b);
 //     if (sum === j) {
 //         console.log(j);
-//         return j++;
+//         j++;
 //     }
 // }
 
@@ -198,6 +201,136 @@ function narcissisticNum(j) {
 //         }
 //     }while(count <= 25);
 // }
+
+
+
+
+
+
+maxSubseqSum([-2, -3, 4, -1, -2, 1, 5, -3]);
+//expected 7 -- from [4, -1, -2, 1, 5]
+//maxSubseqSum([-7, 1, -3, 4, -1, 2, 1, -5, 4]);
+//expected 6 --- from [4, -1, 2, 1]
+
+/* So check the numbers and add them up, compare the total to a total of all the numbers
+* other than the last added up, if that is higher replace that with the new sum
+* loop through again and possibly shift something out if it is a higher max with it shifted
+*
+*
+*
+* */
+function findMax(array){
+    let currentMax = array[0];
+    for(let i = 0; i <array.length; i++){
+        if(array[i] > currentMax){
+            currentMax = array[i];
+        }
+    }return currentMax;
+}
+
+
+function maxSubseqSum(array){
+    console.log("array to check is: " + array);
+    let max = findMax(array);
+    let maxIndex = array.indexOf(max);
+    console.log("index of max num is : " + maxIndex);
+    if(max + array[maxIndex - 1] > max){
+        max += array[maxIndex - 1];
+    }
+    console.log("max num in original array is: " + max);
+    array.splice(maxIndex, 1);
+    console.log("array with max missing is : " + array);
+    let secondMax = findMax(array);
+    console.log("second highest num is: " + secondMax);
+
+    let secondMaxIndex = array.indexOf(secondMax);
+
+
+}
+
+
+// function maxSubseqSum(array){
+//     let output = [];
+//     let newArray = [];
+//     let currentMax = array.reduce((a, b) => a + b);
+//     for(let i = 0; i < array.length; i++){
+//         let eachNum = array[i];
+//         newArray.push(eachNum);
+//         output = newArray;
+//         let compareMax = newArray.reduce((a, b) => a + b);
+//         console.log(compareMax);
+//         if(compareMax > currentMax){
+//             currentMax = compareMax;
+//         }
+//     }
+//     console.log(currentMax);
+//     return currentMax;
+// }
+//
+// function maxSubseqSum(array){
+//     let output = array;
+//     let currentMax = array.reduce((a, b) => a + b);
+//     for(let i = 0; i <= array.length; i++){
+//         output.shift();
+//         console.log(output);
+//     }
+// }
+
+
+
+
+
+
+
+
+
+function password(specialNum, numberNum, passwordLength, upperCaseInclude, lowerCaseInclude){
+    const randomIndex = Math.floor(Math.random()*9)+1;
+    let specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", ".", ","];
+    let numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+    let upperChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+    let lowerChar = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
+    var outputPassword = "";
+    outputPassword.length = passwordLength;
+    specialNum = specialChar[specialNum];
+    numberNum = numbers[numberNum];
+    if(upperCaseInclude === true){
+        outputPassword += upperChar[randomIndex];
+    }
+    if(lowerCaseInclude === true){
+        outputPassword += lowerChar[randomIndex];
+    }
+    if(specialNum === true){
+        outputPassword += specialChar[randomIndex];
+    }
+    if(numberNum === true){
+        outputPassword += numbers[randomIndex];
+    }
+
+    console.log(outputPassword);
+}
+
+//password(true, true, 50, true, true);
+//does not work, how to get the length to the length and does not add special char or nums
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
