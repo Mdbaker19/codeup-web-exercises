@@ -63,15 +63,15 @@
 //         break;
 //     }
 // }
-
+//
 // working with Sophia in class, showing how to do it
-// let count = 0;
-// let addQ = "?";
-// let question = confirm("would you like to exit?");
-// while(!question){
-//     count++
-//     question = confirm("would you like to exit?" + addQ.repeat(count));
-// }
+let count = 0;
+let addQ = "?";
+let question = confirm("would you like to exit?");
+while(!question){
+    count++
+    question = confirm("would you like to exit?" + addQ.repeat(count));
+}
 
 /*********************************************
  *               DO-WHILE LOOPS
