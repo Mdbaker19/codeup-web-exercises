@@ -56,3 +56,35 @@ function productOffer (){
         } else alert("you do not qualify for offer");
     } else alert("sorry, offer is expired");
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
