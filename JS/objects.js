@@ -60,12 +60,12 @@
                 let discountAmount = element.amount * discount;
                 let newAmount = element.amount - (discountAmount);
                 let discMsg =  (element.name + " you qualify for the discount, " + element.amount + " before " + discountAmount + " discount applied new amount owed is: " + newAmount);
-                console.log(discMsg);;
+                console.log(discMsg);
             } else {
                 let noDiscMsg = (element.name + " you do not qualify for the discount, you owe: " + element.amount);
-                console.log(noDiscMsg);;
+                console.log(noDiscMsg);
             }
-        })
+        });
     }
 
     oweAmount(shoppers);
@@ -82,6 +82,43 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+
+    var books = [{
+        bookNum: 1,
+        title: "Elon Musk",
+        author: {
+            firstName: "Ashley",
+            lastName: "Vance"
+        },
+    }, {
+        bookNum: 2,
+        title: "Steal like an artist",
+        author: {
+          firstName: "Austin",
+          lastName: "Kleon"
+        },
+    }, {
+        bookNum: 3,
+        title: "How to win friends and influence people",
+        author: {
+            firstName: "Dale",
+            lastName: "Carnigie"
+        },
+    }, {
+        bookNum: 4,
+        title: "Think and grow rich",
+        author: {
+            firstName: "Napoleon",
+            lastName: "Hill"
+        },
+    }, {
+        bookNum: 5,
+        title: "Power trip",
+        author: {
+            firstName: "I do not",
+            lastName: "remember"
+        }
+    }]
 
     /**
      * TODO:
@@ -108,6 +145,13 @@
      *      ...
      */
 
+    books.forEach((book) => {
+        console.log("Book index # " + (Number(books.indexOf(book)) + 1));
+        console.log("Title is: " + book.title);
+        console.log("Author is: " + book.author.firstName + " " + book.author.lastName);
+        console.log("- - -- - - - - - - - ");
+    })
+
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
@@ -118,5 +162,23 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+
+    function createBook(title, author){
+        books.forEach((book) => {
+            if(title === book.title || author === book.author.firstName){
+                console.log("we have that book!");
+                console.log(book);
+            }
+        })
+    }
+
+
+    createBook("Elon Musk", "Ashley");
+
+    function showBookInfo(){
+
+    }
+
+
 
 })();
