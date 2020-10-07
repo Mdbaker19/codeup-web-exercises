@@ -244,15 +244,3 @@ chooseYourFighter.forEach(function(fighter){
     });
     console.log("- - - - -- - - -  -- -");
 });
-
-
-
-
-
-
-
-
-
-
-
-

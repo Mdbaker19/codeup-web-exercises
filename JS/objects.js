@@ -12,6 +12,14 @@
      *  > console.log(person.lastName) // "Sanchez"
      */
 
+    var person = {
+        firstName: "matt",
+        lastName: "baker",
+        sayHello: function (){
+            return ("Hello from " + this.firstName + " " + this.lastName);
+        }
+    }
+
     /**
      * TODO:
      * Add a sayHello method to the person object that returns a greeting using
@@ -21,6 +29,9 @@
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
+
+    console.log(person.sayHello());
+
 
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
@@ -36,11 +47,28 @@
      * and console.log the relevant messages for each person
      */
 
-    // var shoppers = [
-    //     {name: 'Cameron', amount: 180},
-    //     {name: 'Ryan', amount: 250},
-    //     {name: 'George', amount: 320}
-    // ];
+    var shoppers = [
+        {name: 'Cameron', amount: 180},
+        {name: 'Ryan', amount: 250},
+        {name: 'George', amount: 320}
+    ];
+
+    function oweAmount (array){
+        const discount = .12;
+        array.forEach((element) => {
+            if(element.amount > 200){
+                let discountAmount = element.amount * discount;
+                let newAmount = element.amount - (discountAmount);
+                let discMsg =  (element.name + " you qualify for the discount, " + element.amount + " before " + discountAmount + " discount applied new amount owed is: " + newAmount);
+                console.log(discMsg);;
+            } else {
+                let noDiscMsg = (element.name + " you do not qualify for the discount, you owe: " + element.amount);
+                console.log(noDiscMsg);;
+            }
+        })
+    }
+
+    oweAmount(shoppers);
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
