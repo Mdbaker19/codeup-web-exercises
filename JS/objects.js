@@ -175,10 +175,15 @@
 
     createBook("Elon Musk", "Ashley");
 
-    function showBookInfo(){
-
+    function showBookInfo(bookNumber){
+        books.forEach((book) => {
+            if (bookNumber === book.bookNum){
+                console.log("we have that book!");
+                console.log(book);
+            }
+        })
     }
 
-
+    showBookInfo(2);
 
 })();
