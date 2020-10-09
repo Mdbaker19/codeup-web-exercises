@@ -5,11 +5,11 @@
     var circle = {
         radius: 3,
 
-        getArea: function () {
+        getArea: function (x) {
             // TODO: complete this method
             // hint: area = pi * radius^2
 
-            return; // TODO: return the proper value
+            return Math.PI * Math.pow(x, 2); // TODO: return the proper value
         },
 
         logInfo: function (doRounding) {
@@ -17,8 +17,11 @@
 
             // If doRounding is true, round the result to the nearest integer.
             // Otherwise, output the complete value
-
-            console.log("Area of a circle with radius: " + this.radius + ", is: ");
+            if(doRounding) {
+                console.log("Area of a circle with radius: " + this.radius + ", is: " + Math.round(this.getArea(this.radius)));
+            } else {
+                console.log("Area of a circle with radius: " + this.radius + ", is: " + this.getArea(this.radius));
+            }
         }
     };
 
