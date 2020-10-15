@@ -1,0 +1,90 @@
+<!--# HTML Forms Pre Lesson-->
+<!--1. What HTTP methods can we use in forms?-->
+<form method="get"></form><form method="post"></form>
+<!--2. What happens if we do not specify a method?-->
+<form method="get">is the default</form>
+<!--3. What is a `GET` method?-->
+Used to request information w/out making any changes to data on the server
+any data sent from the form is appended to the url in the form of a query string
+<!--4. What is a `POST` method?-->
+Used to make a change to existing data on the serer, does not add to url
+will instead be embedded in the body of the HTTP request as key-value pairs
+"Are you sure you want to re-submit this form?" is typical when refreshing a page that had Post
+<!--5. What is the `action` attribute used for?-->
+the location the data should be sent
+if not specified then the data will be sent back to the current url.
+<!--6. What is a `query string`?-->
+composed of key value pairs, begins with a ? then the first key-value pair
+<!--7. How are query strings structured?-->
+structure: key=value, each after first is separated by &
+?key1=value1&key2=value2&key3=value3
+<!--8. How do we submit a form?-->
+form needs a button or input element with a type of "submit"
+<input type="submit"> || <button type="submit">Submit this form</button>
+<!--9. What are some common form input elements?-->
+Text inputs-----
+<input type="text" name="email" placeholder="enter email">
+<input type="password" name="password">
+Text Areas------
+<textarea name="comment"></textarea>
+Checkboxes, radio buttons(elements relating to same question should share a name)------
+<input name="newsletter-signup" value="true" type="checkbox" checked>Sign me up!
+<input type="radio" name="quiz-1" value="a"><br>
+<input type="radio" name="quiz-2" value="b">
+Selects------(Drop down choices)
+<select name="coffee-preference">
+    <option value="light">Light roast</option>
+    <option value="dark">Dark roast</option>
+</select>
+<!--10. How can we use name and value attributes?-->
+for selects, parent attribute has a name and the child options have values
+in order for an input to be submitted it must have a name attribute
+value of the name will become the name of the key that corresponds to the value of the input
+<form>
+    <input name="the_answer" value="42">
+    <input type="submit">
+</form>
+When submitted:
+?the_answer=42
+Default to GET/not specified above
+Default to submit to current page/ no action specified
+the value "42" is pre filled in the input but can be adjusted
+by the user and if done so, the value in the query would change accordingly
+<!--11. How do you disable an input?-->
+the < disabled > attribute can be added to make elements non interactive
+<input type="text" name="username" value="codeup" disabled>
+<select name="signup">
+    <option disabled value="n">No</option>
+    <option disabled value="y">Yes</option>
+</select>
+<!--12. How do you hide an input?-->
+Hidden inputs------not shown to user, submit data with form that user does not specify
+or modify
+useful for backend
+<input type="hidden" name="user_id" value="432">
+<!--13. What are `labels` used for?-->
+labels should have a for attribute that matches the id of the element being labeled
+<label for="username">Username</label>
+<input id="username" name="username" type="text">
+Most common with checkboxes and radio buttons
+<h2>What kind of phone do you own?</h2>
+<label for="android">
+    Android <input id="android" type="checkbox" name="phones" value="android">
+</label>
+<label for="ios">
+    iOS <input id="ios" type="checkbox" name="phones" value="ios">
+</label>
+<label for="windows">
+    Windows <input id="windows" type="checkbox" name="phones" value="windows">
+</label>
+<label for="other">
+    Other <input id="other" type="checkbox" name="phones" value="other">
+</label>
+<!--Bonus-->
+<!--* Describe the following:-->
+basically done above already
+<!--*   Text Inputs-->
+<!--*   Text Areas-->
+<!--*   Checkbox and Radio Buttons-->
+<!--*   Selects-->
+
