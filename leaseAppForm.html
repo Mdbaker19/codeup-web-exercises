@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lease Application form attempt</title>
+    <style>
+        body{
+            background-color: bisque;
+            display: flex;
+            justify-content: center;
+        }
+        .topInfo{
+            float: right;
+        }
+        .foot{
+            align-items: baseline;
+        }
+    </style>
+</head>
+<body>
+<form method="POST" action="">
+    <div class="topInfo">
+        <label for="receivedOn">Received on</label>
+        <input type="date" id="receivedOn" name="receivedOn">
+        <label for="receivedTime">(date) at</label>
+        <input id="receivedTime" type="time" name="receivedTime"><br>
+    </div>
+    <img src="img/leaseAppDiamond.jpg" width="75" height="75"><br>
+    <h3>Texas Association of Realtors</h3>
+    <h1>RESIDENTIAL LEASE APPLICATION</h1>
+    <p>USE OF THIS FORM BY PERSONS WHO ARE NOT MEMBERS OF THE TEXAS ASSOCIATION OF REALTORS IS NOT AUTHORIZED.</p><br>
+    <p><strong>©Texas Association of REALTORS, Inc. 2007</strong></p><br>
+    <h3>Each occupant and co-applicant 18 years or older must submit a separate application.</h3><hr>
+    <div class="propertyInfo">
+        <label for="propertyAddress">Property Address:</label>
+        <input id="propertyAddress" name="propertyAddress">
+        <label for="moveInDate">Anticipated: Move-in Date:</label>
+        <input id="moveInDate" name="moveInDate">
+        <label for="rent">Monthly Rent: $</label>
+        <input id="rent" name="rent">
+    </div>
+    <div class="referralInfo">
+        <h5>Application was referred to Landlord by:</h5>
+        <input id="appReferral" name="appReferral" type="checkbox">
+        <label for="appReferral">Real estate agent</label>
+        <input id="agent" name="agent">
+        <label for="agent">(name)</label>
+        <input id="phoneNum" name="phoneNum">
+        <label for="phoneNum">(phone)</label><br>
+        <input id="newspaper" name="newspaper" type="checkbox">
+        <label for="newspaper">Newspaper</label>
+        <input id="sign" name="sign" type="checkbox">
+        <label for="sign">Sign</label>
+        <input id="internet" name="internet" type="checkbox">
+        <label for="internet">Internet</label>
+        <input id="other" name="other" type="checkbox">
+        <label for="other">Other</label>
+        <input id="forOtherOption" name="forOtherOption">
+    </div>
+    <div class="applicantName">
+        <label for="applicant">Applicant's name (first, middle, last)</label>
+        <input id="applicant" name="applicant">
+        <div class="coApplicant">
+            <p>Is there a co-applicant?</p><input type="checkbox" id="yes" name="yes">
+            <label for="yes">yes</label>
+            <input type="checkbox" id="no" name="no">
+            <label for="no">no</label><p><strong>if yes, co-applicant must submit a separate application.</strong></p>
+            <label for="formerName">Applicant's former last name (maiden or married)</label>
+            <input id="formerName" name="formerName">
+        </div>
+        <div class="applicantInfo">
+            <label for="email">E-mail</label>
+            <input id="email" name="email">
+            <label for="homePhone">Home Phone</label>
+            <input id="homePhone" name="homePhone">
+            <label for="workPhone">Work Phone</label>
+            <input id="workPhone" name="workPhone">
+            <label for="mobilePager">Mobile/Pager</label>
+            <input id="mobilePager" name="mobilePager">
+            <label for="social">Soc. Sec. No.</label>
+            <input id="social" name="social">
+            <label for="dlNum">Driver License No.</label>
+            <input id="dlNum" name="dlNum">
+            <label for="dlLocation">in</label>
+            <input id="dlLocation" name="dlLocation"><span>(state)</span>
+            <label for="birth">Date of Birth</label>
+            <input id="birth" name="birth">
+            <label for="height">Height</label>
+            <input id="height" name="height">
+            <label for="weight">Weight</label>
+            <input id="weight" name="weight">
+            <label for="eyeColor">Eye Color</label>
+            <input id="eyeColor" name="eyeColor">
+            <label for="hairColor">Hair Color</label>
+            <input id="hairColor" name="hairColor">
+            <label for="marital">Marital Status</label>
+            <input id="marital" name="marital">
+            <label for="citizenship">Citizenship</label>
+            <input id="citizenship" name="citizenship"><span>(country)</span>
+        </div>
+    </div>
+    <div class="emergencyInfo">
+        <h5>Emergency Contact:</h5>
+        <label for="eName">Name:</label>
+        <input name="eName" id="eName"><br>
+        <label for="eAddress">Address:</label>
+        <input name="eAddress" id="eAddress"><br>
+        <label for="ePhone">Phone:</label>
+        <input name="ePhone" id="ePhone">
+        <label for="eEmail">Email:</label>
+        <input name="eEmail" id="eEmail">
+    </div>
+    <div class="otherOccupants">
+        <h5>Name all other persons who will occupy the Property:</h5>
+        <label for="person1Name">Name:</label>
+        <input id="person1Name" name="person1Name">
+        <label for="person1Relation">Relationship:</label>
+        <input id="person1Relation" name="person1Relation">
+        <label for="person1Age">Age:</label>
+        <input id="person1Age" name="person1Age"><br>
+        <label for="person2Name">Name:</label>
+        <input id="person2Name" name="person2Name">
+        <label for="person2Relation">Relationship:</label>
+        <input id="person2Relation" name="person2Relation">
+        <label for="person2Age">Age:</label>
+        <input id="person2Age" name="person2Age"><br>
+        <label for="person3Name">Name:</label>
+        <input id="person3Name" name="person3Name">
+        <label for="person3Relation">Relationship:</label>
+        <input id="person3Relation" name="person3Relation">
+        <label for="person3Age">Age:</label>
+        <input id="person3Age" name="person3Age"><br>
+        <label for="person4Name">Name:</label>
+        <input id="person4Name" name="person4Name">
+        <label for="person4Relation">Relationship:</label>
+        <input id="person4Relation" name="person4Relation">
+        <label for="person4Age">Age:</label>
+        <input id="person4Age" name="person4Age"><hr>
+    </div>
+    <div class="currentAddress">
+        <label for="addressCurrent">Applicant's Current Address:</label>
+        <input id="addressCurrent" name="addressCurrent">
+        <label for="aptNum">Apt. No.</label>
+        <input id="aptNum" name="aptNum"><br>
+        <input id="cityInfo" name="cityInfo">
+        <label for="cityInfo">(city, state, zip)</label><br>
+        <label for="currentLand">Landlord's Name</label>
+        <input id="currentLand" name="currentLand">
+        <label for="emailCurrentAddress">Email:</label>
+        <input id="emailCurrentAddress" name="emailCurrentAddress"><br>
+        <label for="dayPhone">Phone:Day:</label>
+        <input id="dayPhone" name="dayPhone">
+        <label for="nightNum">Nt:</label>
+        <input id="nightNum" name="nightNum">
+        <label for="mobileNum">Mb:</label>
+        <input id="mobileNum" name="mobileNum">
+        <label for="fax">Fax:</label>
+        <input id="fax" name="fax"><br>
+        <label for="moveIn">Date Moved-In</label>
+        <input id="moveIn" name="moveIn">
+        <label for="moveOut">Move-Out-Date:</label>
+        <input id="moveOut" name="moveOut">
+        <label for="rent">Rent $</label>
+        <input id="rent" name="rent"><br>
+        <label for="reasonMove">Reason for move:</label>
+        <input id="reasonMove" name="reasonMove"><hr>
+    </div>
+    <div class="priorAddress">
+        <label for="addressPrior">Applicant's Previous Address:</label>
+        <input id="addressPrior" name="addressPrior">
+        <label for="priorLand">Previous Landlord's Name</label>
+        <input id="priorLand" name="priorLand">
+        <label for="emailPriorAddress">Email:</label>
+        <input id="emailPriorAddress" name="emailPriorAddress"><br>
+        <label for="dayPhonePrior">Phone:Day:</label>
+        <input id="dayPhonePrior" name="dayPhonePrior">
+        <label for="nightNumPrior">Nt:</label>
+        <input id="nightNumPrior" name="nightNumPrior">
+        <label for="mobileNumPrior">Mb:</label>
+        <input id="mobileNumPrior" name="mobileNumPrior">
+        <label for="faxPrior">Fax:</label>
+        <input id="faxPrior" name="faxPrior"><br>
+        <label for="moveInPrior">Date Moved-In</label>
+        <input id="moveInPrior" name="moveInPrior">
+        <label for="moveOutPrior">Move-Out-Date:</label>
+        <input id="moveOutPrior" name="moveOutPrior">
+        <label for="rentPrior">Rent $</label>
+        <input id="rentPrior" name="rentPrior"><br>
+        <label for="reasonMovePrior">Reason for move:</label>
+        <input id="reasonMovePrior" name="reasonMovePrior"><hr>
+    </div>
+    <div class="currentEmployer">
+        <label for="employerCurrent">Applicant's Current Employer:</label>
+        <input id="employerCurrent" name="employerCurrent">
+        <label for="employerAddress">Address:</label>
+        <input id="employerAddress" name="employerAddress"><p>(street, city, state, zip)</p>
+        <label for="supervisor">Supervisor's Name:</label>
+        <input id="supervisor" name="supervisor">
+        <label for="employerPhone">Phone:</label>
+        <input id="employerPhone" name="employerPhone">
+        <label for="employerFax">Fax:</label>
+        <input id="employerFax" name="employerFax"><br>
+        <label for="employerEmail">Email:</label>
+        <input id="employerEmail" name="employerEmail"><br>
+        <label for="startDate">Start Date:</label>
+        <input id="startDate" name="startDate">
+        <label for="income">Gross Monthly Income $</label>
+        <input id="income" name="income">
+        <label for="position">Position:</label>
+        <input id="position" name="position"><hr>
+    </div>
+</form>
+</body>
+<footer class="foot">
+    <p>(TAR-2003) 10-16</p>
+    <p>Page 1 of 4</p>
+</footer>
+</html>
