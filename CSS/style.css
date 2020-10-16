@@ -1,0 +1,14 @@
+.fancy-header{
+    color: purple;
+}
+/*table*/
+.product-info{
+    padding: 10px;
+}
+h3{
+    text-decoration: underline;
+}
+body{
+    font-family: "Al Bayan", sans-serif;
+    background-color: burlywood;
+}

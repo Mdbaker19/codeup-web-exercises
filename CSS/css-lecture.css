@@ -1,0 +1,39 @@
+body{
+    background-color: aliceblue;
+}
+#comic{
+    font-family: "Comic Sans MS";
+}
+.comic{
+    background-color: mediumorchid;
+}
+ol, h1{
+    background: #ac0606;
+}
+
+/*all decendents*/
+main p {
+    background-color: darkslategray;
+    color: aliceblue;
+}
+
+/*direct decendents*/
+main>p{
+    color: red;
+    background-color: yellow;
+}
+
+/*PSEUDO CLASSES*/
+a:link{
+    font-size: 10px;
+}
+a:visited{
+    font-size: 20px;
+}
+a:hover{
+    font-size: 30px;
+}
+a:active{
+    font-size: 40px;
+    color: black;
+}
