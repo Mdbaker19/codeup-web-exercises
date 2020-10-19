@@ -1,14 +1,37 @@
 .fancy-header{
-    color: purple;
+    color: #aad6d1;
 }
 /*table*/
 .product-info{
     padding: 10px;
+    font-size: 20px;
 }
 h3{
     text-decoration: underline;
 }
 body{
+    background-repeat: no-repeat;
     font-family: "Al Bayan", sans-serif;
-    background-color: burlywood;
+    background-color: #258d2f;
+}
+.topBackground{
+    background-image: url("../img/tree.jpg");
+    background-position: center;
+    background-size: cover;
+    color: aliceblue;
+}
+.middle{
+    background-image: repeating-linear-gradient(#344c57, #356348 10%, #438a66 20%);
+}
+tr>th{
+    text-decoration: underline;
+    color: aliceblue;
+    font-family: "Helvetica Neue", sans-serif;
+}
+ul{
+    list-style: upper-roman;
+}
+a:hover{
+    background-color: black;
+    color: aliceblue;
 }
