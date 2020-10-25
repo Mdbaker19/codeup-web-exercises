@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav{
+    height: 4.25em;
+}
+ul{
+    list-style: none;
+    display: flex;
+    background-color: #878686;
+    color: black;
+    height: 100%;
+}
+li{
+    margin: auto 1em;
+    font-weight: bold;
+    z-index: 1;
+}
+li:nth-child(4){
+    margin-right: auto;
+}
+.right{
+    margin-left: auto;
+}
+.logo{
+    margin: 0 auto;
+    font-size: 3em;
+    padding: 0;
+    z-index: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+a{
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+}
