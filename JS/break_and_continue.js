@@ -80,11 +80,7 @@ do{
 // }
 // //
 // skipNum();
-var i = 1;
-while(i < 65535){
-    i*=2;
-    console.log(i);
-}
+
 
 //const allCones = Math.floor(Math.random() * 50) + 50;
 
