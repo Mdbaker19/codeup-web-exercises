@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pizza order Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/custom.css">
+    <script src="https://kit.fontawesome.com/36f035c426.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Pizza World</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Order Online <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Menu</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Zip Code" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0 customSearch" type="submit">Search Stores Near You</button>
+        </form>
+        <button type="button" class="btn btn-secondary btn-sm profileButton" id="custom"><i class="fas fa-user"></i> Sign Up</button>
+    </div>
+</nav>
+<div class="jumbotron jumbotron-fluid custom">
+    <div class="container pizzaCustom">
+        <h1 class="display-4">Welcome To Pizza World!</h1>
+    </div>
+</div>
+<h2>Build Your Own Pizza!</h2>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><span class="badge badge-pill badge-secondary">1 </span> Size and Crust
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><span class="badge badge-pill badge-secondary">2 </span> Cheese and sauce
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><span class="badge badge-pill badge-secondary">3 </span> Toppings
+        </a>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+
+
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                Choose size and crust
+            </div>
+            <div class="card cardInner">
+                <h5 class="card-header">Hand Tossed</h5>
+                <div class="card-body">
+                    <h5 class="card-title">Garlic seasoned crust with a rich, buttery taste</h5>
+                    <div class="card" style="width: 100%;">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><input type="radio" name="Crust" aria-label="Checkbox for following text input">  Small (10")</li>
+                            <li class="list-group-item"><input type="radio" name="Crust" aria-label="Checkbox for following text input">  Medium (12")</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card cardInner">
+                <h5 class="card-header">Crispy Thin</h5>
+                <div class="card-body">
+                    <h5 class="card-title">Thin enough for optimum crispy to crunchy ratio</h5>
+                    <div class="card" style="width: 100%;">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><input type="radio" name="Crust" aria-label="Checkbox for following text input">  Medium (12")</li>
+                            <li class="list-group-item"><input type="radio" name="Crust" aria-label="Checkbox for following text input">  Large (14")</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-muted alignTheButtonRight">
+
+
+
+                <div class="btn-group customNext" role="group" aria-label="Basic example">
+                    <a data-toggle="tab" href="#profile" class="btn btn-secondary proceedButton" id="firstButtonNext"> Next Step <i class="fas fa-chevron-right"></i></a>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+
+
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                Choose cheese and sauce
+            </div>
+            <div class="card cardInner">
+                <h5 class="card-header">Cheese</h5>
+                <div class="card-body">
+                    <h5 class="card-title">How Much?</h5>
+                    <div class="input-group mb-3">
+                        <select class="custom-select" id="inputGroupSelect01">
+                            <option selected>Choose...</option>
+                            <option value="1">Light</option>
+                            <option value="2">Normal</option>
+                            <option value="3">Extra</option>
+                            <option value="3">Double</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="card cardInner">
+                <h5 class="card-header">Sauce</h5>
+                <div class="card-body">
+                    <h5 class="card-title">What type?</h5>
+                    <div class="input-group mb-3">
+                        <select class="custom-select" id="inputGroupSelect02">
+                            <option selected>Choose...</option>
+                            <option value="1">Tomato sauce</option>
+                            <option value="2">Marinara sauce</option>
+                            <option value="3">BBQ</option>
+                            <option value="4">Alfredo</option>
+                        </select>
+                    </div>
+                    <h5 class="card-title">How much?</h5>
+                    <div class="input-group mb-3">
+                        <select class="custom-select" id="inputGroupSelect03">
+                            <option selected>Choose...</option>
+                            <option value="1">Light</option>
+                            <option value="2">Normal</option>
+                            <option value="3">Extra</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-muted alignTheButtonRight">
+
+
+
+                <div class="btn-group customNext" role="group" aria-label="Basic example">
+                    <a data-toggle="tab" href="#home" class="btn btn-secondary proceedButton"><i class="fas fa-chevron-left"></i> Previous Step></a>
+
+
+
+                    <a data-toggle="tab" href="#contact" class="btn btn-secondary proceedButton"> Next Step <i class="fas fa-chevron-right"></i></a>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                Choose toppings
+            </div>
+            <div class="card cardInner">
+                <h5 class="card-header">Choose Meats</h5>
+                <div class="card" style="width: 100%;">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><input type="checkbox" aria-label="Checkbox for following text input">  Beef</li>
+                        <li class="list-group-item"><input type="checkbox" aria-label="Checkbox for following text input">  Ham</li>
+                        <li class="list-group-item"><input type="checkbox" aria-label="Checkbox for following text input">  Philly Steak</li>
+                        <li class="list-group-item"><input type="checkbox" aria-label="Checkbox for following text input">  Bacon</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card cardInner">
+                <h5 class="card-header">Choose Non-Meats</h5>
+                    <div class="card" style="width: 100%;">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><input type="checkbox" aria-label="Checkbox for following text input">  Green Peppers</li>
+                            <li class="list-group-item"><input type="checkbox" aria-label="Checkbox for following text input">  Mushrooms</li>
+                            <li class="list-group-item"><input type="checkbox" aria-label="Checkbox for following text input">  Onions</li>
+                            <li class="list-group-item"><input type="checkbox" aria-label="Checkbox for following text input">  Jalepeño Peppers</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-muted alignTheButtonRight">
+                <div class="btn-group customNext" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-secondary proceedButton">Checkout <i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

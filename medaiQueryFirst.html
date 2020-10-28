@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>h1 color change</title>
+    <style>
+        h1{
+            color: #8ac7db;
+            background-color: black;
+            text-align: center;
+            margin: 5%;
+        }
+        body{
+            background-color: blue;
+        }
+        div{
+            background-color: aliceblue;
+            color: black;
+        }
+        div:nth-child(odd){
+            background-color: #0fb784;
+            color: #0f0f0f;
+        }
+        .container{
+            display: flex;
+            flex-wrap: wrap;
+            margin: 5%;
+        }
+        @media screen and (min-width: 768px){
+            body{
+                background-color: purple;
+            }
+            h1{
+                color: #252525;
+                background-color: #0fb784;
+                margin: 5%;
+            }
+            div{
+                flex-basis: calc(100%/3);
+                color: aliceblue;
+                background-color: black;
+            }
+            div:nth-child(odd){
+                background-color: #0fb784;
+                color: #0f0f0f;
+            }
+        }
+        @media screen and (min-width: 1200px){
+            h1{
+                background-color: #8ac7db;
+                color: black;
+                margin: 5%;
+            }
+            body{
+                background-color: yellow;
+            }
+            div{
+                flex-basis: calc(100%/2);
+                background-color: aliceblue;
+                color: black;
+            }
+            div:nth-child(odd){
+                background-color: #0b0b0b;
+                color: #0fb784;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Media Queries</h1>
+    <main class="container">
+        <div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis dolore doloribus ducimus enim illo inventore, labore libero nisi non perferendis quibusdam saepe similique unde voluptatem voluptatibus. Ducimus minus nihil suscipit.Amet commodi cum, deleniti doloremque ea eligendi eveniet illum incidunt inventore ipsum laudantium maiores minima, minus neque nesciunt nobis repellat, repudiandae sequi sit voluptatem. Beatae esse illo illum quasi ut.
+            </p>
+        </div>
+        <div>
+            <p>Accusantium blanditiis corporis, debitis delectus dolore ducimus in inventore iure modi, natus nesciunt perferendis quasi quis ratione suscipit tenetur ut veritatis vitae! Assumenda, magnam, perferendis. A distinctio dolores omnis sunt.Atque ex minima quibusdam repudiandae. Aliquid aspernatur aut doloribus enim error est labore laboriosam magni minima mollitia odit officiis qui, quo reiciendis temporibus ut voluptates! Ad distinctio fugit harum iure!Aliquam consectetur corporis cum doloremque dolores eius expedita facere fugiat id incidunt laboriosam modi molestiae neque, officiis praesentium quae quam quasi repellat sed, soluta! Corporis eius excepturi sint sunt voluptatem?Accusamus asperiores consequuntur exercitationem explicabo fugiat hic laborum, provident quam quos, recusandae repellendus rerum sit vitae. Ab cupiditate eos ex fugit maxime natus numquam odio, porro, praesentium reiciendis repellat ullam.Beatae libero magnam obcaecati suscipit vel.
+                </p>
+        </div>
+        <div>
+            <p>Nesciunt, rem repellat. Adipisci alias aliquid amet architecto assumenda, culpa dolor est ipsam iste magnam minima quod quos tenetur ullam voluptatem? Natus, obcaecati ut!Ab accusamus, ad autem consectetur cum cumque distinctio esse eum exercitationem explicabo, impedit incidunt neque nihil nulla numquam omnis provident quo reiciendis rem saepe sit sunt temporibus veniam voluptas, voluptatibus.Adipisci, maxime nisi quas reprehenderit similique ullam voluptatem! Architecto commodi dolores eaque eius eligendi esse, illo ipsum labore maxime omnis optio placeat quaerat ratione recusandae saepe sit soluta sunt ut!Ab architecto eius id illum maiores minus nemo odio quisquam.
+            </p>
+        </div>
+        <div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis dolore doloribus ducimus enim illo inventore, labore libero nisi non perferendis quibusdam saepe similique unde voluptatem voluptatibus. Ducimus minus nihil suscipit.Amet commodi cum, deleniti doloremque ea eligendi eveniet illum incidunt inventore ipsum laudantium maiores minima, minus neque nesciunt nobis repellat, repudiandae sequi sit voluptatem. Beatae esse illo illum quasi ut.
+            </p>
+        </div>
+        <div>
+            <p>Accusantium blanditiis corporis, debitis delectus dolore ducimus in inventore iure modi, natus nesciunt perferendis quasi quis ratione suscipit tenetur ut veritatis vitae! Assumenda, magnam, perferendis. A distinctio dolores omnis sunt.Atque ex minima quibusdam repudiandae. Aliquid aspernatur aut doloribus enim error est labore laboriosam magni minima mollitia odit officiis qui, quo reiciendis temporibus ut voluptates! Ad distinctio fugit harum iure!Aliquam consectetur corporis cum doloremque dolores eius expedita facere fugiat id incidunt laboriosam modi molestiae neque, officiis praesentium quae quam quasi repellat sed, soluta! Corporis eius excepturi sint sunt voluptatem?Accusamus asperiores consequuntur exercitationem explicabo fugiat hic laborum, provident quam quos, recusandae repellendus rerum sit vitae. Ab cupiditate eos ex fugit maxime natus numquam odio, porro, praesentium reiciendis repellat ullam.Beatae libero magnam obcaecati suscipit vel.
+            </p>
+        </div>
+        <div>
+            <p>Nesciunt, rem repellat. Adipisci alias aliquid amet architecto assumenda, culpa dolor est ipsam iste magnam minima quod quos tenetur ullam voluptatem? Natus, obcaecati ut!Ab accusamus, ad autem consectetur cum cumque distinctio esse eum exercitationem explicabo, impedit incidunt neque nihil nulla numquam omnis provident quo reiciendis rem saepe sit sunt temporibus veniam voluptas, voluptatibus.Adipisci, maxime nisi quas reprehenderit similique ullam voluptatem! Architecto commodi dolores eaque eius eligendi esse, illo ipsum labore maxime omnis optio placeat quaerat ratione recusandae saepe sit soluta sunt ut!Ab architecto eius id illum maiores minus nemo odio quisquam.
+            </p>
+        </div>
+    </main>
+</body>
+</html>
