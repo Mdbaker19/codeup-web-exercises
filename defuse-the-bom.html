@@ -17,19 +17,51 @@
             border: 2px solid black;
             border-radius: 5px;
         }
+        #wrong{
+            display: none;
+        }
     </style>
 </head>
 <body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <h2 id="message">This BOM will self destruct in <span id="timer">5</span> seconds...</h2>
 <button id="defuser">Defuse the BOM</button>
 <button id="addTime">Or buy some time</button>
 <p id="success">Bomb defused!</p>
 <p id="why">Just defuse the bomb already....</p>
+<p id="wrong">HAHAHAHAHAHAHAHAHAH!!!!!!!!!</p>
+<input id="guess">
+<button id="checkGuess">Assert</button>
+
+
+
+
+
+
+
+
+
+
 
 <script>
 (function() {
     "use strict";
+
 
     var detonationTimer = 5;
     let countdown = setInterval(updateTimer, 1000);
@@ -37,6 +69,30 @@
     let buyTime = document.getElementById("addTime");
     let whatAreYouDoing = document.getElementById("why");
     let defuseSuccessful = document.getElementById("success");
+
+
+
+
+    let wrongTry = document.getElementById("wrong");
+
+    let textInput = document.getElementById("guess");
+    let assert = document.getElementById("checkGuess");
+
+
+    assert.addEventListener("click", function (){
+        if (textInput.value === "defuse") {
+            clearInterval(countdown);
+            defuseTheBOM();
+        } else{
+            detonationTimer-=5;
+        }
+    });
+
+
+
+
+
+
 
     // TODO: This function needs to be called once every second
     function updateTimer() {
@@ -53,7 +109,7 @@
     // TODO: When this function runs, it needs to
     // cancel the interval/timeout for updateTimer()
     function defuseTheBOM() {
-        clearInterval(countdown);
+        // clearInterval(countdown);
         defuser.style.backgroundColor = "black";
         defuser.style.color = "white";
         messageSpot.innerText = "Bomb defused with " + detonationTimer + " seconds left";
@@ -77,7 +133,12 @@
     // when the "defuser" button is clicked.
     // We will learn about events in the DOM lessons
     var defuser = document.getElementById("defuser");
-    defuser.addEventListener("click", defuseTheBOM);
+    defuser.addEventListener("click", function(){
+        wrongTry.style.display = "block";
+        let style = window.getComputedStyle(wrongTry, null).getPropertyValue('font-size');
+        let currentSize = parseFloat(style);
+        wrongTry.style.fontSize = (currentSize + 1) + 'px';
+    });
 })();
 </script>
 </body>
