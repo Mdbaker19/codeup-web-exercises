@@ -3,18 +3,40 @@
 <head>
     <meta charset="utf-8">
     <title>Defuse the BOM</title>
+    <style>
+        #why{
+            display: none;
+            font-size: 16px;
+        }
+        #success{
+            display: none;
+            max-width: 25%;
+            font-size: 2em;
+            color: #0fb784;
+            background-color: #2d2d34;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
 
 <h2 id="message">This BOM will self destruct in <span id="timer">5</span> seconds...</h2>
 <button id="defuser">Defuse the BOM</button>
+<button id="addTime">Or buy some time</button>
+<p id="success">Bomb defused!</p>
+<p id="why">Just defuse the bomb already....</p>
 
 <script>
 (function() {
     "use strict";
 
     var detonationTimer = 5;
-    setInterval(updateTimer, 1000);
+    let countdown = setInterval(updateTimer, 1000);
+    let messageSpot = document.getElementById("message");
+    let buyTime = document.getElementById("addTime");
+    let whatAreYouDoing = document.getElementById("why");
+    let defuseSuccessful = document.getElementById("success");
 
     // TODO: This function needs to be called once every second
     function updateTimer() {
@@ -31,16 +53,31 @@
     // TODO: When this function runs, it needs to
     // cancel the interval/timeout for updateTimer()
     function defuseTheBOM() {
-        detonationTimer += 10000;// buy some time.......
+        clearInterval(countdown);
+        defuser.style.backgroundColor = "black";
+        defuser.style.color = "white";
+        messageSpot.innerText = "Bomb defused with " + detonationTimer + " seconds left";
+        defuseSuccessful.style.display = "block";
+        whatAreYouDoing.style.display = "none";
+        buyTime.disabled = true;
     }
+    function addTime (){
+        detonationTimer+= 3;
+        whatAreYouDoing.style.display = "block";
+        let style = window.getComputedStyle(whatAreYouDoing, null).getPropertyValue('font-size');
+        let currentSize = parseFloat(style);
+        whatAreYouDoing.style.fontSize = (currentSize + 1) + 'px';
+    }
+
+    buyTime.addEventListener("click", addTime);
 
     // Don't modify anything below this line!
     //
     // This causes the defuseTheBOM() function to be called
     // when the "defuser" button is clicked.
     // We will learn about events in the DOM lessons
-    var defuser = document.getElementById('defuser');
-    defuser.addEventListener('click', defuseTheBOM);
+    var defuser = document.getElementById("defuser");
+    defuser.addEventListener("click", defuseTheBOM);
 })();
 </script>
 </body>
