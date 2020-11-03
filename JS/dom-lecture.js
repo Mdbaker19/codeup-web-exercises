@@ -110,3 +110,56 @@ console.log("test");
 // // ========== Add / Remove Elements
 //
 // see curriculum links
+
+
+document.addEventListener("click", function(e){
+
+    var red = e.screenX % 256;
+    var green = e.screenY % 256;
+    var blue = "#224e98";// not right
+
+
+    // missing some stuff here
+
+    document.body.style.color = "#" + red + green + blue;
+
+
+});
+
+document.addEventListener("keypress", function (e){
+    if(e.code === "Space"){
+        e.preventDefault();
+
+    }
+});
+
+
+// some list in HTML
+
+// list = document.get by tag("li")
+
+function changeListColorToRed(e){
+    //or e.target.style===
+    this.style["background-color"] = "red";
+}
+
+for(let i = 0; i < list.length; i++){
+    list[i].addEventListener("click", changeListColorToRed);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
