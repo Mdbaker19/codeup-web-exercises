@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>bonus practice with bom and dom</title>
+    <style>
+        body{
+            background-color: #8ac7db;
+        }
+    </style>
+</head>
+<body>
+
+
+<p id="timer">0</p>
+<p id="status">....</p>
+
+
+<button id="runTime">Run</button>
+<button id="pauseTime">Pause</button>
+<button id="resetTime">Reset</button>
+
+
+
+
+
+
+<script>
+"use strict";
+        let stopWatchTime = document.getElementById("timer");
+        let status = document.getElementById("status");
+        let time = 0;
+        let stop = null;
+
+        const stopWatch = {
+            run: function(){
+                time += 1;
+                stopWatchTime.innerText = time;
+                status.innerText = "running";
+            },
+            pause: function (){
+                clearInterval(stop);
+                status.innerText = "paused";
+            },
+            reset: function(){
+                time = 0;
+                stopWatchTime.innerText = time;
+                status.innerText = "reset";
+            }
+        }
+
+
+    let runTime = document.getElementById("runTime");
+    runTime.addEventListener("click", function(){
+        stop = setInterval(stopWatch.run, 1000);
+    });
+
+
+
+    let pauseTime = document.getElementById("pauseTime");
+    pauseTime.addEventListener("click", function (){
+        stopWatch.pause();
+    });
+
+    let resetTime = document.getElementById("resetTime");
+    resetTime.addEventListener("click", function (){
+        stopWatch.reset();
+    });
+
+
+
+
+
+</script>
+</body>
+</html>
