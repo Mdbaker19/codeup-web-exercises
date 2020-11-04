@@ -1,13 +1,13 @@
 "use strict";
 
-console.log("test");
-
-// ========== Retrieve elements by id, class, tag name
-
+// console.log("test");
+//
+// // ========== Retrieve elements by id, class, tag name
+//
 // // id
 //     var header = document.getElementById('main-title');
 //     console.log(header);
-
+//
 // // class - will return an HTMLCollection
 //     var cards = document.getElementsByClassName('card');
 //     console.log(cards);
@@ -16,8 +16,8 @@ console.log("test");
 //     var cardsArr = Array.from(cards); // convert HTMLCollection and NodeList to Array
 //     cardsArr.pop();
 //     console.log(cardsArr);
-
-
+//
+//
 //
 // // tag
 //     var sections = document.getElementsByTagName('section');
@@ -67,10 +67,10 @@ console.log("test");
 //
 // // ========== Accessing and modifying attributes
 //
-
-// returns a boolean
-
-
+//
+// // returns a boolean
+//
+//
 // // check if attribute exists
 //     var cowboy = document.getElementById('cowboy');
 //     console.log(cowboy.hasAttribute('data-1'));
@@ -109,43 +109,76 @@ console.log("test");
 //
 // // ========== Add / Remove Elements
 //
-// see curriculum links
+// // see curriculum links
+//
+//
+// document.addEventListener("click", function(e){
+//
+//     var red = e.screenX % 256;
+//     var green = e.screenY % 256;
+//     var blue = "#224e98";// not right
+//
+//
+//     // missing some stuff here
+//
+//     document.body.style.color = "#" + red + green + blue;
+//
+//
+// });
+//
+// document.addEventListener("keypress", function (e){
+//     if(e.code === "Space"){
+//         e.preventDefault();
+//
+//     }
+// });
+//
+//
+// // some list in HTML
+//
+// // list = document.get by tag("li")
+//
+// function changeListColorToRed(e){
+//     //or e.target.style===
+//     this.style["background-color"] = "red";
+// }
+//
+// for(let i = 0; i < list.length; i++){
+//     list[i].addEventListener("click", changeListColorToRed);
+// }
 
 
-document.addEventListener("click", function(e){
-
-    var red = e.screenX % 256;
-    var green = e.screenY % 256;
-    var blue = "#224e98";// not right
 
 
-    // missing some stuff here
-
-    document.body.style.color = "#" + red + green + blue;
 
 
-});
-
-document.addEventListener("keypress", function (e){
-    if(e.code === "Space"){
-        e.preventDefault();
-
-    }
-});
 
 
-// some list in HTML
 
-// list = document.get by tag("li")
 
-function changeListColorToRed(e){
-    //or e.target.style===
-    this.style["background-color"] = "red";
-}
 
-for(let i = 0; i < list.length; i++){
-    list[i].addEventListener("click", changeListColorToRed);
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
