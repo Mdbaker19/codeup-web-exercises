@@ -8,8 +8,52 @@
     <title>mapbox exercise restaurants</title>
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body{
+            background-color: #667275;
+        }
+        #mapBox{
+            margin: auto;
+            border: 3px solid black;
+        }
+        button{
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+        button:hover{
+            color: aliceblue;
+            background-color: black;
+            cursor: pointer;
+        }
+        #infoSpot{
+            margin-bottom: 3em;
+        }
+        #all{
+            margin-bottom: 2em;
+        }
+    </style>
 </head>
 <body>
+<label>
+    Zoom level
+    <select id="zooming">
+        <option value="0">0</option>
+        <option value="5">5</option>
+        <option value="10" selected="selected">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+    </select>
+</label>
+<div id="mapBox" style='width: 95vw; height: 75vh;'></div>
+
+<button id="takeTour">Take a tour!</button>
+
+<!--<button id="hide">Hide Markers</button>-->
+
+<p id="infoSpot">
+
+<h1>Restaurants</h1>
+<p id="all"></p>
 
 
 
