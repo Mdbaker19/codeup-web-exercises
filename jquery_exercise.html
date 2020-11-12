@@ -11,6 +11,9 @@
             background-color: #2d2d34;
             color: aliceblue;
         }
+        li{
+            width: 0;
+        }
     </style>
 </head>
 <body>
@@ -18,26 +21,81 @@
 <h3 id="jqInfoHeadSmall">Jquery info found below</h3>
 <!--<h3 id="jqInfoHeadSmall">Jquery info found below again</h3> duplicate id does not seem to have an affect on jQuery-->
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet architecto corporis cum cupiditate eos iste nesciunt nisi praesentium, rerum?</p>
+<p>first para</p>
+<p>second para</p>
 <ol>
     <li id="mainCodePiece">function</li>
     <li class="codePieces">loop</li>
     <li class="codePieces">if/else</li>
     <li class="codePieces">return</li>
 </ol>
+<p>other para</p>
+<p>another para</p>
+<p>yet another para</p>
+<ul>
+    <li id="matt">Matt</li>
+    <li id="dog">Nemo</li>
+</ul>
 
+<p>numbers here.....</p>
+<p>numbers here.....</p>
+<p>numbers here.....</p>
 <script src="JS/jquery-2.2.4.js"></script>
 <script>
     $(document).ready(function (){
         "use strict";
        // alert("page has finished loading");
-        $("h1, p, li").css("color", "yellow");
-        $(".codePieces").html("did you see what these said during the alert?");
-        alert($("h3").html());
-        $("#mainCodePiece").css("fontSize", "24px");
-        $("*").hide(2000).show(500);
+       //  $("h1, p, li").css("color", "yellow");
+        // console.log($("h1"));
+        // $(".codePieces").html("did you see what these said during the alert?");
+        // alert($("h3").html());
+        // $("#mainCodePiece").css("fontSize", "24px");
+        // $("*").hide(1000).show(500);
+        //
+        // function greet(evt){
+        //     alert(`hello ${evt.data.name}`);
+        // }
+        //
+        // const matt = $("#matt");
+        // matt.on("click", {
+        //     name: "Matt"
+        // }, greet);
+        //
+        // const myDog = $("#dog");
+        // console.log(myDog);
+        // let doggy = document.getElementById("dog");
+        // console.log(doggy);
+
+        //=====THIS DOES NOT WORK RIGHT NOW=======//
+        // myDog.on("click", () => {
+        //     $(this).html("nemo is my dog's name");
+        // });
 
 
+        //==============MOUSE EVENTS EXERCISE=============//
+        $("h1").click(function (){
+           $(this).css("backgroundColor", "green");
+        });
 
+        $("p").dblclick(function(){
+            $(this).css("fontSize", "18px");
+        });
+
+        //INDIVIDUAL
+        //SET WIDTH TO 0 ON THE LI TO KEEP IT TO WHERE YOU NEED TO BE OVER THE ACTUAL ELEMENT FOR THE COLOR CHANGE
+        // RATHER THAN WITHIN THAT X AXIS OF IT
+        // $("li").hover(function (){
+        //    $(this).css("color", "red");
+        // }, function (){
+        //     $(this).css("color", "black");
+        // });
+        //
+        //ALL
+        $("li").hover(function (){
+            $("li").css("color", "red");
+        }, function (){
+            $("li").css("color", "black");
+        });
 
     });
 </script>
