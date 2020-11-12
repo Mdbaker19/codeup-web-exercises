@@ -77,8 +77,8 @@
             window.location.reload();
         });
         $(document).on("keydown", function (e) {
-            e.preventDefault();
             if (e.key.includes("Arrow")) {
+                e.preventDefault();
                 e.key = e.key.replace("Arrow", "");
             }
             keys.push(e.key);
@@ -95,6 +95,8 @@
                 }
             }else if(canGoAgin && keys.length === 11){
                 showSecondButton();
+            } else if(canGoAgin && keys.length > 10){
+                keys = [];
             }
         });
 
