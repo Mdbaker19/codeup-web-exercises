@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Konami Code</title>
+    <style>
+        *{
+            padding: 0;
+            box-sizing: border-box;
+            margin: 0;
+        }
+        body{
+            background-color: #3d575e;
+            color: aliceblue;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #konamiCanvas{
+            width: 500px;
+            height: 500px;
+        }
+        #scary{
+            width: 100%;
+            height: 100%;
+        }
+        #testStop{
+            width: 100px;
+            height: 50px;
+            color: red;
+            background-color: black;
+        }
+        button:hover{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<h1>Konami Code</h1>
+<button id="tryAgain">Reset</button>
+<p id="first">Looks like you have solved my puzzle....</p>
+<p id="second">But.....</p>
+<p id="third">Can you solve it again?</p>
+<p id="timer1">3....</p>
+<p id="timer2">2.....</p>
+<p id="timer3">1......</p>
+<img id="scary" src="img/timeToFloat.jpeg" alt="scary">
+<div id="konamiCanvas">
+    <img id="timeRunning" src="img/timeRunning.jpg" alt="scary">
+</div>
+<button id="testStop">Stop</button>
+<script src="JS/jquery-2.2.4.js"></script>
+<script>
+    "use strict";
+    $(document).ready(function(){
+        const konami = ["Up", "Up", "Down", "Down", "Left", "Right", "Left", "Right", "b", "a", "Enter"];
+        let stopTheSecondInput = $("#testStop");
+        let scary = $("#scary");
+        scary.hide();
+        let timer = $("#timeRunning");
+        timer.hide();
+        let reloadPage = $("#tryAgain");
+        let canGoAgin = false;
+        $("p").hide();
+        stopTheSecondInput.hide();
+
+
+        let keys = [];
+        let secondGo;
+        let body = $("body");
+        let animation = $("#konamiCanvas");
+        reloadPage.on("click", function () {
+            window.location.reload();
+        });
+        $(document).on("keydown", function (e) {
+            e.preventDefault();
+            if (e.key.includes("Arrow")) {
+                e.key = e.key.replace("Arrow", "");
+            }
+            keys.push(e.key);
+            console.log(keys);
+            if(!canGoAgin){
+                if (keys.length === 11) {
+                    if (checkSequence(keys)) {
+                        canGoAgin = true;
+                        successMessage();
+                        secondGo = setTimeout(blackOut, 7500);
+                        body.css("backgroundColor", "black");
+                    }
+                    keys = [];
+                }
+            }else if(canGoAgin && keys.length === 11){
+                showSecondButton();
+            }
+        });
+
+        function checkSequence(arr) {
+            let count = 0;
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] === konami[i]) {
+                    count++;
+                }
+            }
+            return count === konami.length;
+        }
+
+        function successMessage(){
+            timer.show();
+            reloadPage.hide();
+            $("#first").show(500);
+            $("#second").show(1000);
+            $("#third").show(2000);
+            $("#timer1").show(4500);
+            $("#timer2").show(6000);
+            $("#timer3").show(7500);
+        }
+
+        function blackOut(){
+            $("p").css("color", "black");
+            reloadPage.css("display", "none");
+            $("h1").css("color", "red").html("Time to Float");
+            timer.hide();
+            scary.show();
+        }
+
+        stopTheSecondInput.on("click", function (){
+            clearTimeout(secondGo);
+            $("h1").html("success");
+        });
+
+        function showSecondButton (){
+            if(checkSequence(keys)) {
+                stopTheSecondInput.show();
+            }
+        }
+
+    });
+
+</script>
+</body>
+</html>
