@@ -1,5 +1,28 @@
 $(document).ready(function(){
 
+    $("ul").hide();
+    $("span").on("click", function (){
+        $(".wouldYouLikeToSignUp").hide();
+    })
+
+
+
+
+
+    $(".planetName").on("click", function (){
+        $(this).next().slideToggle(1000);
+    });
+
+    let fadeIn = $(".fadingSignUp");
+    fadeIn.hide();
+    fadeIn.fadeIn(8000).css("color", "yellow");
+
+
+
+    $("h3").on("click", function () {
+        $(this).next().css("fontWeight", "bold");
+    });
+
     $("#toggleDD").on("click", function (){
         $("dd").toggleClass("invisible");
     });
@@ -16,9 +39,6 @@ $(document).ready(function(){
         });
     });
 
-    $("h3").on("click", function () {
-        $(this).next().css("fontWeight", "bold");
-    });
 
     $("li").on("click", function (){
         $(this).parent().children().first().css("color", "blue");
@@ -34,18 +54,32 @@ $(document).ready(function(){
     let secondArea = $(".secondArea");
     let thirdArea = $(".thirdArea");
     $("#firstImg").on("click", () => {
-        firstArea.html(secondImage).show(1000);//the .show() does not work like i thought it would
+        firstArea.html(secondImage);
         secondArea.html(firstImage);
         firstImage = $(".firstArea").html();
         secondImage = $(".secondArea").html();
     });
 
     $("#secondImg").on("click", function (){
-        $("#second")
+        let ran = Math.floor(Math.random()*2);
+        if(ran === 0){
+            firstArea.html(secondImage);
+            secondArea.html(firstImage);
+            firstImage = $(".firstArea").html();
+            secondImage = $(".secondArea").html();
+        }else {
+            secondArea.html(thirdImage);
+            thirdArea.html(secondImage);
+            secondImage = $(".secondArea").html();
+            thirdImage = $(".thirdArea").html();
+        }
     });
 
     $("#thirdImg").on("click", function (){
-
+        secondArea.html(thirdImage);
+        thirdArea.html(secondImage);
+        secondImage = $(".secondArea").html();
+        thirdImage = $(".thirdArea").html();
     });
 
 

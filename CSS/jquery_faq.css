@@ -5,7 +5,14 @@
 }
 body{
     text-align: center;
-    background-color: #afaab9;
+    background-color: #8a8593;
+}
+.wouldYouLikeToSignUp{
+    background-color: black;
+    color: aliceblue;
+}
+span{
+    color: red;
 }
 .invisible{
     visibility: hidden;
