@@ -33,7 +33,7 @@ $(document).ready(function() {
      *************/
 
     var gryffindor = $('#gryffindor').html();
-    console.log(gryffindor);
+    // console.log(gryffindor);
 
     // TODO TOGETHER: store the html of #main-heading in a variable named mainHeading
     // var mainHeading = $("#main-heading").html();
@@ -132,9 +132,24 @@ $(document).ready(function() {
      * 			       Traversing
      *********************************************/
 
-    //TODO TOGETHER: Using the each method, highlight every other list item in the Ravenclaw house
+    //TODO TOGETHER: Using the each method, highlight every other list item in the Ravenclaw house => .children selector
+    $("#ravenclaw").children().each(function (item, element){
+        // console.log($(this).html());
+        //same thing^^^^^ as below
+        console.log(element.innerHTML);
+        if(item % 2 !== 0){
+            $(this).css("backgroundColor", "#3396ff");
+        }
+    });
+
+
     //TODO TOGETHER: Change the font color of the first list element in Hufflepuff
+    $("#hufflepuff").children().first().css("color", "yellow");
+
     //TODO TOGETHER: Change the font color of the last list element in Slytherin
+    $("#slytherin").children().last().css("color", "green");
+
+
 
     //TODO TOGETHER: When the 'Witches' button is clicked, highlight all names that have been assigned the class of 'witches'
     $('#highlight-witches').click(function(e){
@@ -149,10 +164,18 @@ $(document).ready(function() {
         $('li').each(function(){
             if($(this).hasClass('wizards')){
                 $(this).toggleClass(('wizard'));
-                $(this).next().css('color', 'orange');
+                $(this)/*.next()*/.css('color', 'orange');
             }
         });
     });
+
+    console.log($("#terrell").parent());
+    console.log($("#terrell").parents());
+
+
+    let parentsArr = $("#terrell").parents();
+
+    parentsArr[parentsArr.length-2].css("color", "blue");//DOES NOT WORK. WILL COME BACK LATER I'M SURE AND SEE WHAT I DID WRONG
 
     //BONUS: .prev() method
 

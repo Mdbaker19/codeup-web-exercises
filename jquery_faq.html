@@ -10,7 +10,7 @@
 </head>
 <body>
 <h1 id="header">Celestial Bodies</h1>
-<a href="#" id="toggleDD">Click to show list descriptions</a>
+<a href="#" id="toggleDD">Click to show list descriptions (currently also has display none added for the other exercise to be easier to see)</a>
 <dl>
 
     <dt>Andromeda</dt>
@@ -44,6 +44,49 @@
     <dd class="invisible">Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a gas giant with a mass one-thousandth that of the Sun, but two-and-a-half times that of all the other planets in the Solar System combined.</dd>
 
 </dl>
+    <button id="lastToYellow">Make each last element Yellow</button>
+<div class="planetLists">
+    <h3 class="planetName">EARTH = ></h3>
+    <ul>
+        <li>Where we live</li>
+        <li>Has water</li>
+        <li>Trees</li>
+        <li>Animals</li>
+        <li>People</li>
+    </ul>
+    <h3 class="planetName">Jupiter = ></h3>
+    <ul>
+        <li>Number 5</li>
+        <li>Largest in system</li>
+        <li>Gas giant</li>
+        <li>Cohort Name</li>
+        <li>2.5x mass of all others</li>
+    </ul>
+    <h3 class="planetName">Mars = ></h3>
+    <ul>
+        <li>Elon's home</li>
+        <li>Next in line to colonize</li>
+        <li>Near Earth</li>
+        <li>Has been explored</li>
+        <li>Red ish in color</li>
+    </ul>
+</div>
+<div class="mainArea">
+    <div class="area firstArea">
+        <img src="img/timeRunning.jpg" alt="balloons" id="first">
+    </div>
+    <div class="area secondArea">
+        <img src="img/sortinghat.png" alt="hat" id="second">
+    </div>
+    <div class="area thirdArea">
+        <img src="img/snow.jpg" alt="snow" id="third">
+    </div>
+</div>
+<div class="buttonArea">
+    <button class="swap" id="firstImg">First</button>
+    <button class="swap" id="secondImg">Second</button>
+    <button class="swap" id="thirdImg">Third</button>
+</div>
 
 <script src="JS/jquery-2.2.4.js"></script>
 <script src="JS/jquery_faq.js"></script>
