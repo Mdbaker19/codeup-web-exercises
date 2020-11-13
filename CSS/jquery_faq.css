@@ -8,3 +8,6 @@ a{
 .highlighted{
     background-color: yellow;
 }
+dt{
+    width: fit-content;
+}
