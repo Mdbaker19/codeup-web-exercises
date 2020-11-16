@@ -6,8 +6,56 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ajax Blog exercise</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/36f035c426.js" crossorigin="anonymous"></script>
+    <style>
+        img{
+            width: 84px;
+            height: 100%;
+        }
+        .titleArea{
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+        }
+        #posts{
+            padding: 2em;
+            width: 80%;
+            margin: 0 10%;
+        }
+        .category{
+            margin-top: 5em;
+        }
+        h6{
+            text-decoration: underline;
+        }
+        body{
+            background-color: #3d575e;
+            color: aliceblue;
+        }
+    </style>
 </head>
 <body>
+<div id="posts">
+    <ul class="list-unstyled">
+        <p class="category">apples</p>
+        <li class="media">
+            <img src="img/sortinghat.png" class="mr-3" alt="hat">
+            <div class="media-body">
+                <div class="titleArea">
+                    <h3 class="mt-0 mb-1">List-based media object</h3>
+                    <h6 class="date">1111-11-11</h6>
+                </div>
+                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+            </div>
+        </li>
+    </ul>
+</div>
 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="JS/ajax-blog.js"></script>
 </body>
 </html>
