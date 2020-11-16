@@ -1,6 +1,5 @@
 $(document).ready(function(){
 
-    $("ul").hide();
     $("span").on("click", function (){
         $(".wouldYouLikeToSignUp").hide();
     })
@@ -9,9 +8,15 @@ $(document).ready(function(){
 
 
 
+    $("ul").hide();
     $(".planetName").on("click", function (){
-        $(this).next().slideToggle(1000);
+        $(this).next().slideToggle(2000);
     });
+
+
+
+
+
 
     let fadeIn = $(".fadingSignUp");
     fadeIn.hide();
