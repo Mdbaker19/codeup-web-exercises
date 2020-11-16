@@ -3,6 +3,21 @@
 <head>
     <title>Online Store</title>
 </head>
+<style>
+    table{
+        border: 3px solid black;
+    }
+    th tr td{
+        margin: 2em;
+    }
+    button{
+        background-color: saddlebrown;
+        color: aliceblue;
+    }
+    button:hover{
+        cursor: pointer;
+    }
+</style>
 <body>
 
 <h1>My Tool Store</h1>
@@ -16,8 +31,8 @@
             <th>Categories</th>
         </tr>
     </thead>
-    <tbody id="insertProducts"></tbody>
 </table>
+<button id="updateCart">Update Cart</button>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
@@ -25,11 +40,38 @@
 (function() {
     "use strict";
     // TODO: Create an AJAX GET request for the file under data/inventory.json
+    function callUpdate() {
+        const ajaxReq = $.ajax("data/inventory.json");
+        console.log("clicked for update");
+        ajaxReq.done((data) => {
+            render(data);
+        });
+        ajaxReq.fail((ajax, status, error) => {
+            console.log(ajax);
+            console.log(status);
+            console.log(error);
+        });
+    }
 
     // TODO: Take the data from inventory.json and append it to the products table
-    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
-    //             its contents and fields
-    //       HINT: You will want to target #insertProducts for your new HTML elements
+    function render (items){
+        let theHtml = "";
+        items.forEach((item) => {
+            theHtml += "<thead>";
+            theHtml += "<tr>";
+            theHtml += `<th>Title</th><th>Quantity</th><th>Price</th><th>Categories</th>`;
+            theHtml += "</tr>";
+            theHtml += "<tr>";
+            theHtml += `<td>${item.title}</td>`;
+            theHtml += `<td>${item.quantity}</td>`;
+            theHtml += `<td>${item.price}</td>`;
+            theHtml += `<td>${item.categories}</td>`;//no need to specify to add each index of the categories array apparently
+            theHtml += "</tr>";
+            theHtml += "</thead>";
+        });
+        $("#products").html(theHtml);
+    }
+    $("#updateCart").on("click", callUpdate);
 })();
 </script>
 
