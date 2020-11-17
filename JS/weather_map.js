@@ -1,27 +1,14 @@
 $(document).ready(function (){
 
-    let weatherSpot = document.getElementsByClassName("weatherArea");
-    let count = 0;
+    let markerPos = [];
 
-    $.get("https://api.openweathermap.org/data/2.5/onecall", {
-        appid: openWeatherApi,
-        lat: 29.42,
-        lon: -98.49,
-        exclude: "minutely, hourly, alerts"
-    }).done((data) => {
-        console.log(data);
-        data.daily.forEach((d) => {
-            weatherSpot[0].innerHTML += render(data);
-            count++;
-        });
-    });
-
+    //=============MAP STUFF===========//
     mapboxgl.accessToken = mapboxToken;
     let mapObj = ({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
         center: [-98.65, 29.44],
-        zoom: 13
+        zoom: 10
     });
     let map = new mapboxgl.Map(mapObj);
 
@@ -29,12 +16,110 @@ $(document).ready(function (){
     // console.log(geocode("san antonio texas 78245", mapboxToken));
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//===============WEATHER FUNCTIONS=============//
+    let weatherSpot = document.getElementsByClassName("weatherArea");
+    let count = 0;
+
+    $.get("https://api.openweathermap.org/data/2.5/onecall", {
+        appid: openWeatherApi,
+        lat: 29.42,
+        lon: -98.49,
+        exclude: "minutely, hourly, alerts, current",
+        units: "imperial"
+    }).done((data) => {
+        console.log(data);
+        let coordinates = {
+            lat : data.lat,
+            lng : data.lon
+        }
+        // console.log(address(coordinates));=====// WHY DOES THIS NOT WORK?
+        reverseGeocode(coordinates, mapboxToken).then((result) => {
+            $("#cityName").text(result);
+        });
+
+        for(let i = 0; i < data.daily.length; i++){
+            weatherSpot[0].innerHTML += render(data);
+            count++;
+        }
+    });
+
+
     function render (data){
         let html = `<div class="weatherCard">`;
-        html += `<p>${data.daily[count].weather[0].description}</p>`;
+        html += `<p id="head">${timeConverter(data.daily[count].dt)}</p>`;
+        html += `<p class="description">Description: ${data.daily[count].weather[0].description}</p>`;
+        html += `<p class="description">H: ${data.daily[count].temp.max}</p>`;
+        html += `<p class="description">L: ${data.daily[count].temp.min}</p>`;
+        html += `<p class="description">Humidity: ${data.daily[count].humidity}</p>`;
+        html += `<p class="description">Pressure: ${data.daily[count].pressure}</p>`;
         html += `</div>`;
         return html;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -48,15 +133,20 @@ $(document).ready(function (){
         return geocode(input, mapboxToken);
     }
     function address(input){
-        return reverseGeocode(input, mapboxToken);
+        let output;
+        reverseGeocode(input, mapboxToken).then((result) =>{
+            output = result;
+        });
+        return output;
     }
-    function convertUnix(x){
-        let date = new Date(x * 1000);
-        let h = date.getHours();
-        let m = `0${date.getMinutes()}`;
-        let s = `0${date.getSeconds()}`;
-        return `${h}:${m.substring(-2)}:${s.substring(-2)}`;
+    function timeConverter(unix){
+        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        let d = new Date(unix * 1000);
+        let year = d.getFullYear();
+        let month = d.getMonth();
+        let m = months[month];
+        let day = d.getDate();
+        return `${day} ${m} ${year}`;
     }
-
 
 });
