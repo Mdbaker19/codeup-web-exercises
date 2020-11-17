@@ -15,12 +15,11 @@ $(document).ready(function (){
 
 
 
-
     // console.log(geocode("san antonio texas 78245", mapboxToken));
 
     let initialMarker = {
         draggable: true,
-        color: "#080808"
+        color: "#FF8552"
     }
 
     let marker = new mapboxgl.Marker(initialMarker)
@@ -40,14 +39,44 @@ $(document).ready(function (){
 
 
     let search = document.getElementById("search");
-    $("#submit").on("click", searchArea);
+    let cord = [];
+    let otherMarker = {
+        draggable: false,
+        color: "#4fb286"
+    }
+    $("#submit").hover(function (){
+        $(this).css({
+            "cursor": "pointer",
+            "backgroundColor": "#220901",
+            "color": "#f4fffd"
+    });
+    }, function (){
+        $(this).css({
+            "backgroundColor": "#f4fffd",
+            "color": "#220901"
+        });
+    }).on("click", searchArea);
+    window.addEventListener("keydown", function (e){
+        if(e.key === "Enter"){
+            if(search.value.length > 0){
+                searchArea();
+            }
+        }
+    });
     function searchArea(){
-        let cord = [];
         geocode(search.value, mapboxToken).then((r) => {
+            let searchedMarker = new mapboxgl.Marker(otherMarker).setLngLat(r).addTo(map)
             cord[0] = r[0];
             cord[1] = r[1];
+            map.flyTo({
+                center: r,
+                zoom: 10,
+                speed: 1,
+                curve: 1
+            });
+            markerPos = cord;
+            getWeather();
         });
-        console.log(cord);
     }
 
 
