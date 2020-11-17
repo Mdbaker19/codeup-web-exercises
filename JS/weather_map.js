@@ -14,6 +14,8 @@ $(document).ready(function (){
     let map = new mapboxgl.Map(mapObj);
 
 
+
+
     // console.log(geocode("san antonio texas 78245", mapboxToken));
 
     let initialMarker = {
@@ -34,6 +36,19 @@ $(document).ready(function (){
 
     marker.on("dragend", updateMarker);
 
+
+
+
+    let search = document.getElementById("search");
+    $("#submit").on("click", searchArea);
+    function searchArea(){
+        let cord = [];
+        geocode(search.value, mapboxToken).then((r) => {
+            cord[0] = r[0];
+            cord[1] = r[1];
+        });
+        console.log(cord);
+    }
 
 
 

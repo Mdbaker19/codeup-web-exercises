@@ -9,14 +9,16 @@ body{
 .heading{
     width: 100%;
     background-color: royalblue;
-    height: 10vh;
+    height: 30vh;
     display: flex;
     justify-content: space-between;
     color: aliceblue;
     border: 5px solid black;
+    flex-direction: column;
 }
 .upperArea{
     margin: 1% 5%;
+    font-size: 18px;
 }
 .description{
     font-size: 12px;
@@ -30,10 +32,18 @@ body{
     display: flex;
     justify-content: space-between;
     background-color: #2d2d34;
-    height: 40vh;
+    height: 100vh;
+    flex-direction: column;
     color: aliceblue;
     padding-left: 5%;
     padding-right: 5%;
+    align-items: center;
+    overflow: scroll;
+}
+.search{
+    height: 4vh;
+    margin: auto 0;
+    align-self: center;
 }
 #map{
     width: 100%;
@@ -41,12 +51,31 @@ body{
     border: 5px solid black;
 }
 .weatherCard{
-    width: calc(100%/9);
+    width: 75%;
     height: 85%;
-    margin: auto 0;
+    margin: 1em 0;
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
     border: 2px solid aliceblue;
+}
+
+@media screen and (min-width: 768px){
+    h1{
+        font-size: 28px;
+    }
+    .heading{
+        flex-direction: row;
+        height: 10vh;
+    }
+    .weatherArea{
+        flex-direction: row;
+        height: 40vh;
+        overflow: auto;
+    }
+    .weatherCard{
+        width: calc(100%/9);
+        margin: auto 0;
+    }
 }
