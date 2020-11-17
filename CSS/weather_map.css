@@ -1,0 +1,52 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #afaab9;
+}
+.heading{
+    width: 100%;
+    background-color: royalblue;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    color: aliceblue;
+    border: 5px solid black;
+}
+.upperArea{
+    margin: 1% 5%;
+}
+.description{
+    font-size: 12px;
+}
+#head{
+    text-decoration: underline;
+    font-weight: bold;
+}
+.weatherArea{
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    background-color: #2d2d34;
+    height: 40vh;
+    color: aliceblue;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+#map{
+    width: 100%;
+    height: 50vh;
+    border: 5px solid black;
+}
+.weatherCard{
+    width: calc(100%/9);
+    height: 85%;
+    margin: auto 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid aliceblue;
+}
