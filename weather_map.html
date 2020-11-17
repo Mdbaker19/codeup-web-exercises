@@ -6,25 +6,24 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Weather Map project</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="CSS/weather_map.css">
 </head>
 <body>
 
 
 
-<div class="heading">
+    <div class="heading">
+        <h1 id="title" class="upperArea">Weather Map</h1>
+        <h3 id="cityName" class="upperArea">City Here</h3>
+    </div>
+    <div class="weatherArea">
 
-</div>
-<div class="weatherArea">
-
-</div>
-<div class="mapArea">
+    </div>
     <div id="map">
 
     </div>
-</div>
-
-
 
 
 
@@ -38,6 +37,7 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 <script src="JS/keys.js"></script>
+<script src="JS/mapbox-geocoder-utils.js"></script>
 <script src="JS/weather_map.js"></script>
 </body>
 </html>
