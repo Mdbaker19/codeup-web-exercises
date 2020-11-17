@@ -1,13 +1,14 @@
 $(document).ready(function (){
 
     let markerPos = [];
+    let start = [-98.65, 29.44];
 
     //=============MAP STUFF===========//
     mapboxgl.accessToken = mapboxToken;
     let mapObj = ({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
-        center: [-98.65, 29.44],
+        center: start,
         zoom: 10
     });
     let map = new mapboxgl.Map(mapObj);
@@ -15,6 +16,23 @@ $(document).ready(function (){
 
     // console.log(geocode("san antonio texas 78245", mapboxToken));
 
+    let initialMarker = {
+        draggable: true,
+        color: "#080808"
+    }
+
+    let marker = new mapboxgl.Marker(initialMarker)
+        .setLngLat(start)
+        .addTo(map)
+
+    function updateMarker(){
+        let location = marker.getLngLat();
+        markerPos[0] = (location.lng);
+        markerPos[1] = (location.lat);
+        getWeather();
+    }
+
+    marker.on("dragend", updateMarker);
 
 
 
@@ -25,26 +43,36 @@ $(document).ready(function (){
 
 
 
+    function getWeather(){
+        count = 0;
+        $.get("https://api.openweathermap.org/data/2.5/onecall", {
+            appid: openWeatherApi,
+            lat: markerPos[1],
+            lon: markerPos[0],
+            exclude: "minutely, hourly, alerts, current",
+            units: "imperial"
+        }).done((data) => {
+            let coordinates = {
+                lat: data.lat,
+                lng: data.lon
+            }
+            reverseGeocode(coordinates, mapboxToken).then((result) => {
+                $("#cityName").text(result);
+            });
+
+            weatherSpot[0].innerHTML = "";
+
+            for (let i = 0; i < data.daily.length; i++) {
+                weatherSpot[0].innerHTML += render(data);
+                count++;
+            }
+        });
+    }
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//===============WEATHER FUNCTIONS=============//
+//===============WEATHER FUNCTION INITIAL FOR SAN ANTONIO=============//
     let weatherSpot = document.getElementsByClassName("weatherArea");
     let count = 0;
 
@@ -55,21 +83,19 @@ $(document).ready(function (){
         exclude: "minutely, hourly, alerts, current",
         units: "imperial"
     }).done((data) => {
-        console.log(data);
         let coordinates = {
-            lat : data.lat,
-            lng : data.lon
+            lat: data.lat,
+            lng: data.lon
         }
-        // console.log(address(coordinates));=====// WHY DOES THIS NOT WORK?
         reverseGeocode(coordinates, mapboxToken).then((result) => {
             $("#cityName").text(result);
         });
-
-        for(let i = 0; i < data.daily.length; i++){
+        for (let i = 0; i < data.daily.length; i++) {
             weatherSpot[0].innerHTML += render(data);
             count++;
         }
     });
+
 
 
     function render (data){
@@ -109,36 +135,7 @@ $(document).ready(function (){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //===========OTHER FUNCTIONS============//
-    function crd(input){
-        return geocode(input, mapboxToken);
-    }
-    function address(input){
-        let output;
-        reverseGeocode(input, mapboxToken).then((result) =>{
-            output = result;
-        });
-        return output;
-    }
     function timeConverter(unix){
         let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         let d = new Date(unix * 1000);
