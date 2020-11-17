@@ -2,20 +2,18 @@ $(document).ready(function (){
 
     let markerPos = [];
     let start = [-98.65, 29.44];
+    const baseOffset = 21600;
 
-    //=============MAP STUFF===========//
     mapboxgl.accessToken = mapboxToken;
     let mapObj = ({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
         center: start,
-        zoom: 10
+        zoom: 8
     });
     let map = new mapboxgl.Map(mapObj);
 
 
-
-    // console.log(geocode("san antonio texas 78245", mapboxToken));
 
     let initialMarker = {
         draggable: true,
@@ -84,9 +82,6 @@ $(document).ready(function (){
 
 
 
-
-
-
     function getWeather(){
         count = 0;
         $.get("https://api.openweathermap.org/data/2.5/onecall", {
@@ -100,6 +95,9 @@ $(document).ready(function (){
                 lat: data.lat,
                 lng: data.lon
             }
+            $("#time").html(clockTime(data.current.dt + data.timezone_offset + baseOffset));
+
+            console.log(data);
             reverseGeocode(coordinates, mapboxToken).then((result) => {
                 $("#cityName").text(result);
             });
@@ -116,7 +114,6 @@ $(document).ready(function (){
 
 
 
-//===============WEATHER FUNCTION INITIAL FOR SAN ANTONIO=============//
     let weatherSpot = document.getElementsByClassName("weatherArea");
     let count = 0;
 
@@ -131,6 +128,8 @@ $(document).ready(function (){
             lat: data.lat,
             lng: data.lon
         }
+        $("#time").html(clockTime(data.current.dt));
+        console.log(data);
         reverseGeocode(coordinates, mapboxToken).then((result) => {
             $("#cityName").text(result);
         });
@@ -144,42 +143,32 @@ $(document).ready(function (){
 
     function render (data){
         let html = `<div class="weatherCard">`;
-        html += `<p id="head">${timeConverter(data.daily[count].dt)}</p>`;
-        html += `<p class="description">Description: ${data.daily[count].weather[0].description}</p>`;
-        html += `<p class="description">H: ${data.daily[count].temp.max}</p>`;
-        html += `<p class="description">L: ${data.daily[count].temp.min}</p>`;
-        html += `<p class="description">Humidity: ${data.daily[count].humidity}</p>`;
-        html += `<p class="description">Pressure: ${data.daily[count].pressure}</p>`;
+        html += `<img src="http://openweathermap.org/img/wn/${data.daily[count].weather[0].icon}@2x.png">`
+        html += `<p id="head">${timeConverter(data.daily[count].dt + data.timezone_offset)}</p>`;
+        html += `<p class="description long">Description: <span>${data.daily[count].weather[0].description}</span></p>`;
+        html += `<p class="description">H: <span>${data.daily[count].temp.max}</span></p>`;
+        html += `<p class="description">L: <span>${data.daily[count].temp.min}</span></p>`;
+        html += `<p class="description">Humidity: <span>${data.daily[count].humidity}</span></p>`;
+        html += `<p class="description">Pressure: <span>${data.daily[count].pressure}</span></p>`;
+        html += `<p class="description long">Wind speed: <span>${data.daily[count].wind_speed}/mph</span></p>`;
         html += `</div>`;
         return html;
     }
 
 
+    function clockTime(unix){
+        let uT = unix
+        let date = new Date(uT * 1000);
+        let hours = date.getHours();
+        let minutes = "0" + date.getMinutes();
+        let seconds = "0" + date.getSeconds();
+
+        return `${hours}:${minutes.substr(-2)}:${seconds.substr(-2)}`;
+    }
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //===========OTHER FUNCTIONS============//
     function timeConverter(unix){
         let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         let d = new Date(unix * 1000);

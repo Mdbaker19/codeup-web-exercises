@@ -22,7 +22,13 @@ body{
     font-size: 22px;
 }
 .description{
-    font-size: 12px;
+    font-size: 14px;
+}
+.timeArea{
+    margin: .5em;
+}
+.long{
+    text-align: center;
 }
 #head{
     text-decoration: underline;
@@ -68,13 +74,16 @@ body{
     align-items: center;
     border: 2px solid #f4fffd;
 }
+span{
+    font-size: 18px;
+}
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 708px){
     #title{
-        font-size: 24px;
+        font-size: 22px;
     }
     .upperArea{
-        font-size: 16px;
+        font-size: 14px;
     }
     .heading{
         flex-direction: row;
@@ -84,19 +93,45 @@ body{
         flex-direction: row;
         height: 40vh;
         overflow: auto;
+        flex-wrap: wrap;
     }
     .weatherCard{
-        width: calc(100%/9);
+        width: 25%;
         margin: auto 0;
+    }
+    .description{
+        font-size: 12px;
+    }
+    span{
+        font-size: 16px;
     }
 }
 @media screen and (min-width: 1000px){
     #submit{
         width: 10em;
     }
+    .description{
+        font-size: 10px;
+    }
+    span{
+        font-size: 14px;
+    }
+    .weatherCard{
+        width: calc(100%/9);
+        margin: auto 0;
+    }
+    #time{
+        font-size: 18px;
+    }
+    #timeHead{
+        font-size: 14px;
+    }
 }
 @media screen and (min-width: 1380px){
     #title{
+        font-size: 22px;
+    }
+    #time{
         font-size: 22px;
     }
     #search{
