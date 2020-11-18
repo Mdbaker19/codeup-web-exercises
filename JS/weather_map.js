@@ -1,5 +1,15 @@
 $(document).ready(function (){
 
+    // import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
+    // require('../../node_modules/@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css')
+    //
+    // mapboxgl.accessToken = mapboxToken;
+    // var geocoder = new mapboxgl.MapboxGeocoder({
+    //     accessToken: mapboxgl.accessToken,
+    //     placeholder: 'Search'
+    // });
+    // document.getElementById('geocoder').appendChild(geocoder.onAdd());
+
     let markerPos = [];
     let start = [-98.65, 29.44];
     const baseOffset = 21600;
@@ -7,13 +17,11 @@ $(document).ready(function (){
     mapboxgl.accessToken = mapboxToken;
     let mapObj = ({
         container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
+        style: 'mapbox://styles/mapbox/dark-v10',
         center: start,
-        zoom: 8
+        zoom: 8,
     });
     let map = new mapboxgl.Map(mapObj);
-
-
 
     let initialMarker = {
         draggable: true,
@@ -34,14 +42,13 @@ $(document).ready(function (){
     marker.on("dragend", updateMarker);
 
 
-
-
     let search = document.getElementById("search");
     let cord = [];
     let otherMarker = {
         draggable: false,
         color: "#4fb286"
     }
+
     $("#submit").hover(function (){
         $(this).css({
             "cursor": "pointer",
@@ -54,13 +61,16 @@ $(document).ready(function (){
             "color": "#220901"
         });
     }).on("click", searchArea);
+
     window.addEventListener("keydown", function (e){
         if(e.key === "Enter"){
             if(search.value.length > 0){
                 searchArea();
+                search.value = "";
             }
         }
     });
+
     function searchArea(){
         geocode(search.value, mapboxToken).then((r) => {
             let searchedMarker = new mapboxgl.Marker(otherMarker).setLngLat(r).addTo(map)
@@ -78,10 +88,6 @@ $(document).ready(function (){
     }
 
 
-
-
-
-
     function getWeather(){
         count = 0;
         $.get("https://api.openweathermap.org/data/2.5/onecall", {
@@ -97,7 +103,6 @@ $(document).ready(function (){
             }
             $("#time").html(clockTime(data.current.dt + data.timezone_offset + baseOffset));
 
-            console.log(data);
             reverseGeocode(coordinates, mapboxToken).then((result) => {
                 $("#cityName").text(result);
             });
@@ -108,10 +113,12 @@ $(document).ready(function (){
                 weatherSpot[0].innerHTML += render(data);
                 count++;
             }
+        }).fail(function(jqhx, st, er){
+            console.log(jqhx);
+            console.log(st);
+            console.log(er);
         });
     }
-
-
 
 
     let weatherSpot = document.getElementsByClassName("weatherArea");
@@ -129,7 +136,6 @@ $(document).ready(function (){
             lng: data.lon
         }
         $("#time").html(clockTime(data.current.dt));
-        console.log(data);
         reverseGeocode(coordinates, mapboxToken).then((result) => {
             $("#cityName").text(result);
         });
@@ -137,23 +143,31 @@ $(document).ready(function (){
             weatherSpot[0].innerHTML += render(data);
             count++;
         }
+    }).fail(function(jqhx, st, er){
+        console.log(jqhx);
+        console.log(st);
+        console.log(er);
     });
-
-
 
     function render (data){
         let html = `<div class="weatherCard">`;
-        html += `<img src="http://openweathermap.org/img/wn/${data.daily[count].weather[0].icon}@2x.png">`
-        html += `<p id="head">${timeConverter(data.daily[count].dt + data.timezone_offset)}</p>`;
+        html += `<img src="http://openweathermap.org/img/wn/${data.daily[count].weather[0].icon}.png">`;
+        html += `<p class="head">${timeConverter(data.daily[count].dt + data.timezone_offset)}</p>`;
         html += `<p class="description long">Description: <span>${data.daily[count].weather[0].description}</span></p>`;
-        html += `<p class="description">H: <span>${data.daily[count].temp.max}</span></p>`;
-        html += `<p class="description">L: <span>${data.daily[count].temp.min}</span></p>`;
+        html += `<p class="description">H: <span>${data.daily[count].temp.max}°</span></p>`;
+        html += `<p class="description">L: <span>${data.daily[count].temp.min}°</span></p>`;
         html += `<p class="description">Humidity: <span>${data.daily[count].humidity}</span></p>`;
         html += `<p class="description">Pressure: <span>${data.daily[count].pressure}</span></p>`;
         html += `<p class="description long">Wind speed: <span>${data.daily[count].wind_speed}/mph</span></p>`;
         html += `</div>`;
         return html;
     }
+
+    $(".weatherCard").hover(function () {
+        console.log("on");
+    }, function () {
+        console.log("off");
+    });
 
 
     function clockTime(unix){
@@ -166,9 +180,6 @@ $(document).ready(function (){
         return `${hours}:${minutes.substr(-2)}:${seconds.substr(-2)}`;
     }
 
-
-
-
     function timeConverter(unix){
         let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         let d = new Date(unix * 1000);
@@ -178,5 +189,4 @@ $(document).ready(function (){
         let day = d.getDate();
         return `${day} ${m} ${year}`;
     }
-
 });
