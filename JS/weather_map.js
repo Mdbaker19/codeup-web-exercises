@@ -1,14 +1,5 @@
 $(document).ready(function (){
 
-    // import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
-    // require('../../node_modules/@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css')
-    //
-    // mapboxgl.accessToken = mapboxToken;
-    // var geocoder = new mapboxgl.MapboxGeocoder({
-    //     accessToken: mapboxgl.accessToken,
-    //     placeholder: 'Search'
-    // });
-    // document.getElementById('geocoder').appendChild(geocoder.onAdd());
 
     let markerPos = [];
     let start = [-98.65, 29.44];
@@ -31,6 +22,14 @@ $(document).ready(function (){
     let marker = new mapboxgl.Marker(initialMarker)
         .setLngLat(start)
         .addTo(map)
+
+    var geocoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl,
+        marker: false,
+    });
+
+    map.addControl(geocoder);
 
     function updateMarker(){
         let location = marker.getLngLat();
