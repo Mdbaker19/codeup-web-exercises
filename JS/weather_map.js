@@ -23,28 +23,37 @@ $(document).ready(function (){
         .setLngLat(start)
         .addTo(map)
 
-    var geocoder = new MapboxGeocoder({
+    let geocoder = new MapboxGeocoder({
         accessToken: mapboxgl.accessToken,
         mapboxgl: mapboxgl,
-        marker: false,
+        minLength: 1,
+        marker: {
+            color: "black"
+        }
+    });
+
+    geocoder.on("result", function(e){
+        markerPos[0] = e.result.center[0]
+        markerPos[1] = e.result.center[1]
+        getWeather();
     });
 
     map.addControl(geocoder);
 
-    function updateMarker(){
+    function updateMarkerMain(){
         let location = marker.getLngLat();
         markerPos[0] = (location.lng);
         markerPos[1] = (location.lat);
         getWeather();
     }
 
-    marker.on("dragend", updateMarker);
+    marker.on("dragend", updateMarkerMain);
 
 
     let search = document.getElementById("search");
     let cord = [];
     let otherMarker = {
-        draggable: false,
+        draggable: true,
         color: "#4fb286"
     }
 
@@ -70,9 +79,18 @@ $(document).ready(function (){
         }
     });
 
+    function updateMarkerSecond(){
+        let location = searchedMarker.getLngLat();
+        markerPos[0] = (location.lng);
+        markerPos[1] = (location.lat);
+        getWeather();
+    }
+
+    let searchedMarker = new mapboxgl.Marker(otherMarker);
+
     function searchArea(){
         geocode(search.value, mapboxToken).then((r) => {
-            let searchedMarker = new mapboxgl.Marker(otherMarker).setLngLat(r).addTo(map)
+            searchedMarker.setLngLat(r).addTo(map);
             cord[0] = r[0];
             cord[1] = r[1];
             map.flyTo({
@@ -85,6 +103,8 @@ $(document).ready(function (){
             getWeather();
         });
     }
+
+    searchedMarker.on("dragend", updateMarkerSecond);
 
 
     function getWeather(){
@@ -100,6 +120,7 @@ $(document).ready(function (){
                 lat: data.lat,
                 lng: data.lon
             }
+            console.log(data);
             $("#time").html(clockTime(data.current.dt + data.timezone_offset + baseOffset));
 
             reverseGeocode(coordinates, mapboxToken).then((result) => {
@@ -142,11 +163,39 @@ $(document).ready(function (){
             weatherSpot[0].innerHTML += render(data);
             count++;
         }
+        cardHover(data);
     }).fail(function(jqhx, st, er){
         console.log(jqhx);
         console.log(st);
         console.log(er);
     });
+
+    //=============BUTTON TO CLOSE IS NOT WORKING============//
+    function cardHover(extraInfo) {
+        $(".weatherCard").on("click", function(){
+            $("#largeArea").fadeIn(300).css("display", "flex").html((createLargeCard($(this).html(), extraInfo)));
+        });
+        $("#close").on("click", function(){
+            $("#largeArea").fadeOut(300);
+            console.log("clicked close");
+        });
+    }
+
+
+    //==========HOW TO INDEX THE DAILY BASED ON WHAT IS CLICKED??============//
+    function createLargeCard(content, extra){
+        let html = `<div class="largeCard">`;
+        html += `<button id="close">X</button>`;
+        html += content;
+        html += `<p class="description">Sun rise: <span>${clockTime(extra.daily[0].sunrise)}</span></p>`;
+        html += `<p class="description">Sun set: <span>${clockTime(extra.daily[0].sunset)}</span></p>`;
+        html += `<p class="description">UVI: <span>${extra.daily[0].uvi}</span></p>`;
+        html += `<p class="description">Day feels like: <span>${extra.daily[0].feels_like.day}</span></p>`;
+        html += `</div>`;
+        console.log(extra);
+        return html;
+    }
+
 
     function render (data){
         let html = `<div class="weatherCard">`;
@@ -157,16 +206,26 @@ $(document).ready(function (){
         html += `<p class="description">L: <span>${data.daily[count].temp.min}°</span></p>`;
         html += `<p class="description">Humidity: <span>${data.daily[count].humidity}</span></p>`;
         html += `<p class="description">Pressure: <span>${data.daily[count].pressure}</span></p>`;
-        html += `<p class="description long">Wind speed: <span>${data.daily[count].wind_speed}/mph</span></p>`;
+        html += `<p class="description long">Wind speed: <span>${data.daily[count].wind_speed}/mph</span> <span>${windDir(data.daily[count].wind_deg)}</span></p>`;
         html += `</div>`;
         return html;
     }
 
-    $(".weatherCard").hover(function () {
-        console.log("on");
-    }, function () {
-        console.log("off");
-    });
+
+
+    function windDir(d) {
+        let directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+
+        d += 22.5;
+
+        if (d < 0) {
+            d = 360 - Math.abs(d) % 360;
+        }else {
+            d = d % 360;
+        }
+        let w = parseInt(d / 45);
+        return `${directions[w]}`;
+    }
 
 
     function clockTime(unix){
