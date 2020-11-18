@@ -108,7 +108,6 @@ $(document).ready(function (){
 
 
     function getWeather(){
-        count = 0;
         $.get("https://api.openweathermap.org/data/2.5/onecall", {
             appid: openWeatherApi,
             lat: markerPos[1],
@@ -130,8 +129,7 @@ $(document).ready(function (){
             weatherSpot[0].innerHTML = "";
 
             for (let i = 0; i < data.daily.length; i++) {
-                weatherSpot[0].innerHTML += render(data);
-                count++;
+                weatherSpot[0].innerHTML += render(data, i);
             }
         }).fail(function(jqhx, st, er){
             console.log(jqhx);
@@ -142,7 +140,6 @@ $(document).ready(function (){
 
 
     let weatherSpot = document.getElementsByClassName("weatherArea");
-    let count = 0;
 
     $.get("https://api.openweathermap.org/data/2.5/onecall", {
         appid: openWeatherApi,
@@ -160,57 +157,55 @@ $(document).ready(function (){
             $("#cityName").text(result);
         });
         for (let i = 0; i < data.daily.length; i++) {
-            weatherSpot[0].innerHTML += render(data);
-            count++;
+            weatherSpot[0].innerHTML += render(data, i);
         }
-        cardHover(data);
+        cardHover();
     }).fail(function(jqhx, st, er){
         console.log(jqhx);
         console.log(st);
         console.log(er);
     });
 
-    //=============BUTTON TO CLOSE IS NOT WORKING============//
-    function cardHover(extraInfo) {
-        $(".weatherCard").on("click", function(){
-            $("#largeArea").fadeIn(300).css("display", "flex").html((createLargeCard($(this).html(), extraInfo)));
+
+    function cardHover() {
+        $("body").on("click", ".weatherCard", function(){
+            $(".noShow").css("display", "flex");
+            $("#largeArea").fadeIn(200).css("display", "flex").html((createLargeCard($(this).html())));
         });
-        $("#close").on("click", function(){
+        $("body").on("click", "#close", function(){
+            $(".noShow").css("display", "none");
             $("#largeArea").fadeOut(300);
-            console.log("clicked close");
         });
     }
 
 
-    //==========HOW TO INDEX THE DAILY BASED ON WHAT IS CLICKED??============//
-    function createLargeCard(content, extra){
+
+    function createLargeCard(content){
         let html = `<div class="largeCard">`;
         html += `<button id="close">X</button>`;
         html += content;
-        html += `<p class="description">Sun rise: <span>${clockTime(extra.daily[0].sunrise)}</span></p>`;
-        html += `<p class="description">Sun set: <span>${clockTime(extra.daily[0].sunset)}</span></p>`;
-        html += `<p class="description">UVI: <span>${extra.daily[0].uvi}</span></p>`;
-        html += `<p class="description">Day feels like: <span>${extra.daily[0].feels_like.day}</span></p>`;
         html += `</div>`;
-        console.log(extra);
         return html;
     }
 
-
-    function render (data){
+    function render (data, i){
         let html = `<div class="weatherCard">`;
-        html += `<img src="http://openweathermap.org/img/wn/${data.daily[count].weather[0].icon}.png">`;
-        html += `<p class="head">${timeConverter(data.daily[count].dt + data.timezone_offset)}</p>`;
-        html += `<p class="description long">Description: <span>${data.daily[count].weather[0].description}</span></p>`;
-        html += `<p class="description">H: <span>${data.daily[count].temp.max}°</span></p>`;
-        html += `<p class="description">L: <span>${data.daily[count].temp.min}°</span></p>`;
-        html += `<p class="description">Humidity: <span>${data.daily[count].humidity}</span></p>`;
-        html += `<p class="description">Pressure: <span>${data.daily[count].pressure}</span></p>`;
-        html += `<p class="description long">Wind speed: <span>${data.daily[count].wind_speed}/mph</span> <span>${windDir(data.daily[count].wind_deg)}</span></p>`;
+        html += `<img src="http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}.png">`;
+        html += `<p class="head">${weekDay(data.daily[i].dt)}</p>`;
+        html += `<p class="head">${timeConverter(data.daily[i].dt + data.timezone_offset)}</p>`;
+        html += `<p class="description long">Description: <span>${data.daily[i].weather[0].description}</span></p>`;
+        html += `<p class="description">H: <span>${data.daily[i].temp.max}°</span></p>`;
+        html += `<p class="description">L: <span>${data.daily[i].temp.min}°</span></p>`;
+        html += `<p class="description">Humidity: <span>${data.daily[i].humidity}</span></p>`;
+        html += `<p class="description long">Wind speed: <span>${data.daily[i].wind_speed}/mph</span> <span>${windDir(data.daily[i].wind_deg)}</span></p>`;
+        html += `<p class="description noShow">Pressure: <span>${data.daily[i].pressure}</span></p>`;
+        html += `<p class="description noShow">Sun rise: <span>${clockTime(data.daily[i].sunrise)}</span></p>`;
+        html += `<p class="description noShow">Sun set: <span>${clockTime(data.daily[i].sunset)}</span></p>`;
+        html += `<p class="description noShow">UVI: <span>${data.daily[i].uvi}</span></p>`;
+        html += `<p class="description noShow">Day feels like: <span>${data.daily[i].feels_like.day}</span></p>`;
         html += `</div>`;
         return html;
     }
-
 
 
     function windDir(d) {
@@ -236,6 +231,13 @@ $(document).ready(function (){
         let seconds = "0" + date.getSeconds();
 
         return `${hours}:${minutes.substr(-2)}:${seconds.substr(-2)}`;
+    }
+
+    function weekDay(unix){
+        let d = new Date(unix * 1000);
+        let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        let day = d.getDay();
+        return `${days[day]}`;
     }
 
     function timeConverter(unix){
