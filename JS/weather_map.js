@@ -170,7 +170,7 @@ $(document).ready(function (){
     function cardHover() {
         $("body").on("click", ".weatherCard", function(){
             $(".noShow").css("display", "flex");
-            $("#largeArea").fadeIn(200).css("display", "flex").html((createLargeCard($(this).html())));
+            $("#largeArea").fadeIn(50).css("display", "flex").html((createLargeCard($(this).html())));
         });
         $("body").on("click", "#close", function(){
             $(".noShow").css("display", "none");
@@ -191,9 +191,10 @@ $(document).ready(function (){
     function render (data, i){
         let html = `<div class="weatherCard">`;
         html += `<img src="http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}.png">`;
-        html += `<p class="head">${weekDay(data.daily[i].dt)}</p>`;
+        html += `<p class="weekday">${weekDay(data.daily[i].dt)}</p>`;
         html += `<p class="head">${timeConverter(data.daily[i].dt + data.timezone_offset)}</p>`;
-        html += `<p class="description long">Description: <span>${data.daily[i].weather[0].description}</span></p>`;
+        html += `<p class="description descriptionHead">Description</p>`;
+        html += `<p class="description long"><span>${capitalizeWords(data.daily[i].weather[0].description)}</span></p>`;
         html += `<p class="description">H: <span>${data.daily[i].temp.max}°</span></p>`;
         html += `<p class="description">L: <span>${data.daily[i].temp.min}°</span></p>`;
         html += `<p class="description">Humidity: <span>${data.daily[i].humidity}</span></p>`;
@@ -207,6 +208,23 @@ $(document).ready(function (){
         return html;
     }
 
+
+
+    function capitalizeWords(str){
+        let answer = "";
+        let asArr = str.split(" ");
+        let first = asArr[0][0].toUpperCase();
+        let last = asArr[1][0].toUpperCase();
+        let newFirst = asArr[0].split("").splice(1, asArr[0].length-1);
+        let newLast = asArr[1].split("").splice(1, asArr[1].length-1);
+        newFirst.unshift(first);
+        let capFirst = newFirst.join("");
+        newLast.unshift(last);
+        let capLast = newLast.join("");
+        answer += capFirst + " ";
+        answer += capLast;
+        return answer;
+    }
 
     function windDir(d) {
         let directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];

@@ -24,6 +24,9 @@ body{
 .description{
     font-size: 14px;
 }
+.descriptionHead{
+    text-decoration: underline;
+}
 .timeArea{
     margin: .5em;
 }
@@ -31,6 +34,10 @@ body{
     text-align: center;
 }
 .head{
+    font-weight: bold;
+    color: rgba(79, 178, 134, .8);
+}
+.weekday{
     text-decoration: underline;
     font-weight: bold;
     color: #4fb286;
@@ -39,7 +46,7 @@ body{
     width: 100vw;
     display: flex;
     justify-content: space-between;
-    background-color: #220901;
+    background-color: #190701;
     height: 100vh;
     flex-direction: column;
     color: #f4fffd;
@@ -110,6 +117,18 @@ body{
     color: #f4fffd;
     border-radius: 5px;
 }
+#timeHead{
+    font-size: 18px;
+}
+#time{
+    font-size: 22px;
+}
+.clock{
+    height: 50%;
+}
+.timeArea{
+    height: 5vh;
+}
 button:hover{
     cursor: pointer;
 }
@@ -141,6 +160,18 @@ span{
         overflow: auto;
         flex-wrap: wrap;
     }
+    .clock{
+        height: 30%;
+    }
+    .timeArea{
+        height: 7vh;
+    }
+    #timeHead{
+        font-size: 16px;
+    }
+    #time{
+        font-size: 20px;
+    }
     .weatherCard{
         width: 25%;
         margin: auto 0;
@@ -156,11 +187,17 @@ span{
     #submit{
         width: 10em;
     }
+    .search{
+        height: 3vh;
+    }
     .weatherArea{
         padding: 0 5%;
     }
     .description{
         font-size: 10px;
+    }
+    .descriptionHead{
+        margin-bottom: -.4em;
     }
     span{
         font-size: 14px;
@@ -178,10 +215,13 @@ span{
 }
 @media screen and (min-width: 1380px){
     #title{
-        font-size: 22px;
+        font-size: 25px;
     }
     .weatherArea{
         padding: 0 1%;
+    }
+    .upperArea{
+        font-size: 18px;
     }
     #time{
         font-size: 22px;
