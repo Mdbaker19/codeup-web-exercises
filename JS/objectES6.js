@@ -1,0 +1,234 @@
+/* **************************************************************
+*
+*       Object Property Variable Assignment Shorthand
+*
+*****************************************************************/
+//TODO TOGETHER: Create a newDog object using shorthand syntax
+
+// let breed = "Pug";
+// let age = 3;
+// let dogName = "Lexie";
+// let isCute = true;
+
+//old way
+// let oldDog = {
+// 	breed: breed,
+// 	age: age,
+// 	dogName: dogName,
+// 	isCute: isCute
+// }
+//
+// console.log(oldDog);
+
+
+
+// //new way
+//
+// let newDog = {
+//     breed,
+//     age,
+//     dogName,
+//     isCute
+// };
+
+// console.log(newDog);
+
+
+/*****************************************************************
+ *                       Object Destructuring
+ *          Shorthand for creating variables from object properties
+ *          Based on the name of the key
+ *****************************************************************/
+
+const personA = {
+	name: 'codeup',
+	age: 4
+};
+
+// old way
+//
+// var name = person.name;
+// var age = person.age;
+//
+//
+// console.log(name); // 'codeup'
+// console.log(age); // 4
+
+
+//TODO TOGETHER: REFACTOR the above approach using ES6
+//
+// const {name, num} = personA;
+// console.log(name);
+// console.log(num);//undefined, needs to match the object you are referencing
+// you can reassign with object notation line 89
+
+
+/*==============================================*/
+
+
+const pals = {
+    dog: "Spike",
+    cat: "Tom",
+    mouse: "Jerry"
+};
+
+//old way
+// let myDog = pals.dog;
+// let myCat = pals.cat;
+// let myMouse = pals.mouse;
+//
+//
+// console.log(myDog); //Spike
+// console.log(myCat); //Tom
+// console.log(myMouse); //Jerry
+
+
+//TODO TOGETHER: REFACTOR the above approach using ES6
+//new way
+const {dog: myDog, cat, mouse} = pals;
+console.log(myDog);
+console.log(cat);
+console.log(mouse);
+
+
+/*==============================================*/
+
+//TODO: Use object destructuring with the following object
+
+const theFlash = {
+    name: "Barry Allen",
+    alias: "The Flash",
+    occupation: "Forensic Scientist",
+    powers: "Super Speed"
+}
+
+
+const {name, alias, occupation} = theFlash;
+
+console.log(name);
+console.log(alias);
+console.log(occupation);
+// console.log(powers); not added in 106
+
+/*==============================================*/
+//Destructuring with Arrays
+
+// let cats = ["CJ", "Claude", "Max"];
+
+//oldway
+// let cat1 = cats[0];
+// let cat2 = cats[1];
+// let cat3 = cats[2];
+
+
+//new way
+// let [ cat1, cat2, cat3 ] = cats;
+
+// console.log(cat1);
+// console.log(cat2);
+// console.log(cat3);
+
+
+/*==============================================*/
+
+const alphabet = ['A', 'B', 'C', 'D', 'E'];
+
+//old way
+// const a = alphabet[0];
+// const b = alphabet[1];
+// const c = alphabet[2];
+
+
+//TODO TOGETHER: new way
+// let [a, b, , , e] = alphabet;
+
+// console.log(a);
+// console.log(b);
+// // console.log(c); SKIPPED OVER BY LEAVING THE COMMA SPACE IN THE ARRAY
+// console.log(e);
+
+
+//TODO TOGETHER: To skip an element...
+// ^^^^^^
+
+
+
+
+//TODO TOGETHER: To get all elements...Spread operator *BONUS
+let [a, b, c, ...rest] = alphabet
+console.log(rest);
+
+
+/*==============================================*/
+// Using with functions
+
+
+//old way
+// function tellMeAbout(person) {
+// 	var name = person.name;
+// 	var age = person.age;
+// 	console.log(name); // 'codeup'
+// 	console.log(age); // 4
+// }
+
+
+//new way
+// PROPERTIES NEED TO MATCH
+function tellMeAbout({name, age}){
+    console.log(name);
+    console.log(age);
+}
+
+const person = {
+    name: 'codeup',
+    num: 4
+};
+
+tellMeAbout(person);
+
+
+/*==============================================*/
+
+
+// function getArea({height, width}){
+//     return height * width;
+// }
+
+let shape1 = {
+    height: 10,
+    width: 10
+}
+
+let shape2 = {
+    height: 5,
+    width: 5
+}
+
+// console.log(getArea(shape1)); //100
+// console.log(getArea(shape2)); //25
+
+
+//TODO: Refactor the getArea function from above using arrow syntax
+
+const getArea = ({h, w}) => h * w
+
+let s3 = {
+    h: 10,
+    w: 10
+}
+
+let s4 = {
+    h: 5,
+    w: 5
+}
+
+console.log(getArea(s3));
+console.log(getArea(s4));
+
+
+
+
+
+
+
+
