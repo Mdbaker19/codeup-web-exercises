@@ -4,7 +4,7 @@
     padding: 0;
 }
 body{
-    background-color: #afaab9;
+    background-color: #220901;
 }
 .heading{
     width: 100%;
@@ -15,11 +15,15 @@ body{
     color: #f4fffd;
     border: 5px solid #220901;
     flex-direction: column;
+    border-radius: 10px;
 }
 .upperArea{
     margin: 1% 5%;
     color: #4fb286;
     font-size: 22px;
+}
+#map{
+    border-radius: 10px;
 }
 .description{
     font-size: 14px;
@@ -46,7 +50,7 @@ body{
     width: 100vw;
     display: flex;
     justify-content: space-between;
-    background-color: #190701;
+    background-color: #220901;
     height: 100vh;
     flex-direction: column;
     color: #f4fffd;
@@ -77,10 +81,10 @@ body{
     margin: 1em 0;
     display: flex;
     justify-content: space-evenly;
-    background-color: rgba(34, 9, 1, .8);
+    background-color: rgba(28, 15, 19, .7);
     flex-direction: column;
     align-items: center;
-    border: 2px solid rgba(34, 9, 1, .8);
+    border: 2px solid rgba(28, 15, 19, .7);
     border-radius: 15px;
 }
 #largeArea{
@@ -197,7 +201,7 @@ span{
         font-size: 10px;
     }
     .descriptionHead{
-        margin-bottom: -.4em;
+        margin-bottom: -.2em;
     }
     span{
         font-size: 14px;
@@ -213,9 +217,10 @@ span{
         font-size: 14px;
     }
 }
-@media screen and (min-width: 1380px){
+@media screen and (min-width: 1400px){
     #title{
         font-size: 25px;
+        margin-left: .5em;
     }
     .weatherArea{
         padding: 0 1%;

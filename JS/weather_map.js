@@ -1,6 +1,4 @@
 $(document).ready(function (){
-
-
     let markerPos = [];
     let start = [-98.65, 29.44];
     const baseOffset = 21600;
@@ -119,7 +117,6 @@ $(document).ready(function (){
                 lat: data.lat,
                 lng: data.lon
             }
-            console.log(data);
             $("#time").html(clockTime(data.current.dt + data.timezone_offset + baseOffset));
 
             reverseGeocode(coordinates, mapboxToken).then((result) => {
@@ -159,7 +156,7 @@ $(document).ready(function (){
         for (let i = 0; i < data.daily.length; i++) {
             weatherSpot[0].innerHTML += render(data, i);
         }
-        cardHover();
+        cardClick();
     }).fail(function(jqhx, st, er){
         console.log(jqhx);
         console.log(st);
@@ -167,10 +164,10 @@ $(document).ready(function (){
     });
 
 
-    function cardHover() {
+    function cardClick() {
         $("body").on("click", ".weatherCard", function(){
             $(".noShow").css("display", "flex");
-            $("#largeArea").fadeIn(50).css("display", "flex").html((createLargeCard($(this).html())));
+            $("#largeArea").fadeIn(10).css("display", "flex").html((createLargeCard($(this).html())));
         });
         $("body").on("click", "#close", function(){
             $(".noShow").css("display", "none");
@@ -190,7 +187,7 @@ $(document).ready(function (){
 
     function render (data, i){
         let html = `<div class="weatherCard">`;
-        html += `<img src="http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}.png">`;
+        html += `<img src="http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}.png" alt="icon">`;
         html += `<p class="weekday">${weekDay(data.daily[i].dt)}</p>`;
         html += `<p class="head">${timeConverter(data.daily[i].dt + data.timezone_offset)}</p>`;
         html += `<p class="description descriptionHead">Description</p>`;
@@ -228,9 +225,7 @@ $(document).ready(function (){
 
     function windDir(d) {
         let directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
-
         d += 22.5;
-
         if (d < 0) {
             d = 360 - Math.abs(d) % 360;
         }else {
@@ -240,14 +235,12 @@ $(document).ready(function (){
         return `${directions[w]}`;
     }
 
-
     function clockTime(unix){
         let uT = unix
         let date = new Date(uT * 1000);
         let hours = date.getHours();
         let minutes = "0" + date.getMinutes();
         let seconds = "0" + date.getSeconds();
-
         return `${hours}:${minutes.substr(-2)}:${seconds.substr(-2)}`;
     }
 
