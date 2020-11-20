@@ -39,5 +39,17 @@ const users = [
 const min3LangUser = users.filter((o) => o.languages.length >= 3);
 console.log(min3LangUser);
 
+const emails = users.map((user) => user.email);
+console.log(emails);
+
+const totalExp = users.reduce((a, b) => a + b.yearsOfExperience, 0);
+console.log(`total years experience is ${totalExp}`);
+console.log(`average experience is ${totalExp/users.length}`);
+
+const longestEmail = users.reduce((a, b) => a + b.email.length, "");
+console.log(longestEmail);
 
 
+let startingString = "Your instructors are: ";
+const instructors = users.reduce((a, b) => `${a} ${b.name}`, startingString);
+console.log(instructors);
