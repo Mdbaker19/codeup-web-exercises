@@ -199,8 +199,15 @@ var hamsters = [
     }
 ];
 
-let uniqueFurSet = new Set();
+let counter = 0;
+const uniqueFurColors = hamsters.reduce((arr, hamster) => {
+    hamster.fur.forEach((color) => {
+        if(typeof arr[color] === "undefined"){
+            counter++;
+            arr[color] = `unique Color number ${counter}`;
+        }
+    });
+    return arr;
+},{});
 
-hamsters.reduce(() => {
-
-},{})
+console.log(uniqueFurColors);
