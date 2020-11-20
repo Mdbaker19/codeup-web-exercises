@@ -33,9 +33,9 @@ const users = [
 // to the languages array
 // TODO: replace the `var` keyword with `const`, then try to reassign a variable
 // declared as `const`
-const name = 'matt';
-const email = 'matt@matt.matts';
-const languages = ["JS", "CSS", "HTML"];
+// const name = 'matt';
+// const email = 'matt@matt.matts';
+// const languages = ["JS", "CSS", "HTML"];
 
 // name = "Matt";
 
@@ -52,12 +52,11 @@ console.log(p);
 
 
 // TODO: rewrite the object literal using object property shorthand
-let user = {
+users.push({
   name,
   email,
   languages
-};
-users.push(user);
+});
 console.log(users);
 
 
@@ -69,14 +68,10 @@ let names = [];
 
 
 // TODO: rewrite the following using arrow functions
-users.forEach((user) => {
-  return emails.push(user.email);
-});
-users.forEach((user) => {
-  return names.push(user.name);
-});
-
-
+users.forEach((user) => emails.push(user.email));
+// console.log(emails);
+users.forEach((user) => names.push(user.name));
+// console.log(names);
 
 
 // TODO: replace `var` with `let` in the following declaration
@@ -86,29 +81,31 @@ users.forEach((user) => {
   //       parameter definition
 let developers = [];
 //
-// users.forEach((user) => {
+users.forEach((user) => {
 //   const name = user.name;
 //   const email = user.email;
 //   const languages = user.languages;
 //
-// //
-// //
-// //
+//
+const{name, email, languages} = user;
+
+//
+//
 //   // TODO: rewrite the assignment below to use template strings
-//   developers.push(`${name}'s email is ${email}, ${name} knows ${languages.join(', ')}`);
-// });
-
-
-const generateUser = ({name, email, languages}) => {
-  return {
-    name,
-    email,
-    languages
-  }
-}
-users.forEach((user) =>{
-  developers.push(generateUser(user));
+  developers.push(`${name}'s email is ${email}, ${name} knows ${languages.join(', ')}`);
 });
+
+
+// const generateUser = ({name, email, languages}) => {
+//   return {
+//     name,
+//     email,
+//     languages
+//   }
+// }
+// users.forEach((user) =>{
+//   developers.push(generateUser(user));
+// });
 
 console.log(developers);
 
@@ -127,7 +124,7 @@ let list = '<ul>';
 for(const dev of developers) {
 
   // TODO: rewrite the assignment below to use template strings
-  list += `<li>${dev.name}, ${dev.email}, ${dev.languages}</li>`;
+  list += `<li>${dev}</li>`;
 };
 list += '</ul>';
 

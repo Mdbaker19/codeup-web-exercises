@@ -58,6 +58,7 @@ body{
     padding-right: 5%;
     align-items: center;
     overflow: scroll;
+    overflow-x: hidden;
 }
 .search {
     height: 4vh;
