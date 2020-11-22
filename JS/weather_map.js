@@ -1,5 +1,5 @@
 $(document).ready(function (){
-    let markerPos = [];
+    let markerPos = [-98.49, 29.42];
     let start = [-98.65, 29.44];
     const baseOffset = 21600;
 
@@ -25,14 +25,13 @@ $(document).ready(function (){
         accessToken: mapboxgl.accessToken,
         mapboxgl: mapboxgl,
         minLength: 1,
-        marker: {
-            color: "black"
-        }
+        marker: false
     });
 
     geocoder.on("result", function(e){
-        markerPos[0] = e.result.center[0]
-        markerPos[1] = e.result.center[1]
+        markerPos[0] = e.result.center[0];
+        markerPos[1] = e.result.center[1];
+        marker.setLngLat(markerPos)
         getWeather();
     });
 
@@ -119,7 +118,7 @@ $(document).ready(function (){
             }
             $("#time").html(clockTime(data.current.dt + data.timezone_offset + baseOffset));
 
-            reverseGeocode(coordinates, mapboxToken).then((result) => {
+            reverseGeocodeSpecific(coordinates, mapboxToken).then((result) => {
                 $("#cityName").text(result);
             });
 
@@ -128,6 +127,7 @@ $(document).ready(function (){
             for (let i = 0; i < data.daily.length; i++) {
                 weatherSpot[0].innerHTML += render(data, i);
             }
+            cardClick();
         }).fail(function(jqhx, st, er){
             console.log(jqhx);
             console.log(st);
@@ -135,33 +135,9 @@ $(document).ready(function (){
         });
     }
 
+    getWeather();
 
     let weatherSpot = document.getElementsByClassName("weatherArea");
-
-    $.get("https://api.openweathermap.org/data/2.5/onecall", {
-        appid: openWeatherApi,
-        lat: 29.42,
-        lon: -98.49,
-        exclude: "minutely, hourly, alerts, current",
-        units: "imperial"
-    }).done((data) => {
-        let coordinates = {
-            lat: data.lat,
-            lng: data.lon
-        }
-        $("#time").html(clockTime(data.current.dt));
-        reverseGeocode(coordinates, mapboxToken).then((result) => {
-            $("#cityName").text(result);
-        });
-        for (let i = 0; i < data.daily.length; i++) {
-            weatherSpot[0].innerHTML += render(data, i);
-        }
-        cardClick();
-    }).fail(function(jqhx, st, er){
-        console.log(jqhx);
-        console.log(st);
-        console.log(er);
-    });
 
 
     function cardClick() {
@@ -174,8 +150,6 @@ $(document).ready(function (){
             $("#largeArea").fadeOut(300);
         });
     }
-
-
 
     function createLargeCard(content){
         let html = `<div class="largeCard">`;
