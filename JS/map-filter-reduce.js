@@ -68,8 +68,8 @@ console.log(longestEmail);
 
 
 let startingString = "Your instructors are: ";
-const instructors = users.reduce((a, b) => `${a} ${b.name}`, startingString);
-console.log(instructors);
+const instructors = users.reduce((a, b) => `${a} ${b.name},`, startingString);
+console.log(instructors.substring(0, instructors.length -1) + ".");
 
 
 const uniqueLang = users.reduce((arr, user) => {
