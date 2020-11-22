@@ -1,6 +1,6 @@
 $(document).ready(function (){
     let markerPos = [-98.49, 29.42];
-    let start = [-98.65, 29.44];
+    let start = [-98.49, 29.42];
     const baseOffset = 21600;
 
     mapboxgl.accessToken = mapboxToken;
