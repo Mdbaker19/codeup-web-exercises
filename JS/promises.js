@@ -25,14 +25,37 @@ $(document).ready(function (){
 
 
 
+    let spot = $(".person");
+
     const baseUrl = "https://api.github.com";
 
-    fetch(`${baseUrl}/events`, {headers: {'Authorization': gitHubToken}}).then((response) => {
-        return response.json();
-    }).then(data => {
-        matt.log(data);
-    });
+    const findEvent = function (un) {
+        fetch(`${baseUrl}/users/${un}/events/public`, {headers: {'Authorization': gitHubToken}}).then((response) => {
+            return response.json();
+        }).then(data => {
+            spot[0].innerHTML += render(data, un);
+            console.log(data);
+        });
+    }
 
+    function render(data, name){
+        let html = `<div>`;
+        html+= `<h1>${name} made a ${data[0].type} to : </h1>`;
+        html+=`<h3>${data[0].repo.name} at : </h3>`;
+        html+=`<h3>${getTime(data[0].created_at)}</h3>`;
+        html+=`</div>`;
+        return html;
+    }
+
+    function getTime(input){
+        let formatted =  input.split("T").join("").substring(10, input.length-2).split(":");
+        let hours = formatted.shift();
+        let myTime = parseFloat(hours) - 6;
+        formatted.unshift(myTime);
+        return formatted.join(":");
+    }
+
+    findEvent("Mdbaker19");
 
 
 

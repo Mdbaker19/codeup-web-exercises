@@ -1,5 +1,6 @@
  const matt = {
        log: function (input){
-           return $("body").html(`<h1>${input}</h1>`);
+           let html = (`<h1>${input}</h1>`);
+           $("body").innerHTML += html;
        }
    }
