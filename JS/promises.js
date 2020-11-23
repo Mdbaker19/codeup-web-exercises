@@ -15,6 +15,8 @@ $(document).ready(function (){
 
 
     wait("ww").then((data) => console.log(data)).catch((err) => console.error(err));
+    wait("'''==;;").then((data) => console.log(data)).catch((err) => console.error(err));
+    wait("   -jj ").then((data) => console.log(data)).catch((err) => console.error(err));
     wait(1000).then((data) => console.log(data)).catch((err) => console.error(err));
     wait(3000).then((data) => console.log(data)).catch((err) => console.error(err));
     wait(6000).then((data) => console.log(data)).catch((err) => console.error(err));
