@@ -29,12 +29,22 @@ $(document).ready(function (){
 
     const baseUrl = "https://api.github.com";
 
+    const checkRateLimit = ()=>{
+        $.get(`${baseUrl}/rate_limit`, () => {
+        }).done((data) => {
+            console.log(data.rate);
+        });
+    }
+    checkRateLimit();
+
     const findEvent = function (un) {
         fetch(`${baseUrl}/users/${un}/events/public`, {headers: {'Authorization': gitHubToken}}).then((response) => {
             return response.json();
         }).then(data => {
-            spot[0].innerHTML += render(data, un);
             console.log(data);
+            spot[0].innerHTML += render(data, un);
+        }).catch(error => {
+            console.error(error);
         });
     }
 
