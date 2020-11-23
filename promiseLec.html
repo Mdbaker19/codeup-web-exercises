@@ -12,7 +12,7 @@
     <div id="articles"></div>
 
 </main>
-<script src="keys.js"></script>
+<script src="JS/keys.js"></script>
 <script
         src="https://code.jquery.com/jquery-3.4.0.min.js"
         integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
@@ -44,17 +44,20 @@
     let goodKid = true;
 
     // a promise is made to do something
-    const getCake = new Promise((resolve, reject) => {
+    // good bad can be whatever, changed from resolve and reject
+    const getCake = new Promise((good, bad) => {
         if (goodKid) {
-            resolve("Here is some cake");
+            good("Here is some cake");
         } else {
-            reject("Bad. No cake. :(");
+            bad("Bad. No cake. :(");
         }
     });
 
     console.log(getCake); // promise object
 
     // once the promise is resolved or rejected, take additional action
+
+    //err is just not resolving, then is the resolve
 
     getCake.then((data) => {
         console.log(data);
@@ -65,7 +68,7 @@
     // ============ Using Promises with jQuery version 3+
 
     // jQuery AJAX methods
-    //     $.ajax('https://swapi.co/api/people/1')
+    //     $.ajax('https://swapi.dev/api/people/1')
     //         .done(function(data) {
     //             console.log(data);
     //         })
@@ -74,7 +77,7 @@
     //         });
 
     // Using promise methods (jQuery version 3.x.x and after)
-    //     $.ajax('https://swapi.co/api/people/1')
+    //     $.ajax('https://swapi.dev/api/people/1')
     //         .then(function(data) {
     //             console.log(data);
     //         })
@@ -92,7 +95,7 @@
     // ============ Fetch API
 
     // jQuery AJAX request example
-    // $.ajax('https://swapi.co/api/people/1')
+    // $.ajax('https://swapi.dev/api/people/1')
     //     .done(function(data) {
     //         console.log(data);
     //     })
@@ -101,7 +104,7 @@
     //     });
 
     // Fetch API GET example
-    //     fetch('https://swapi.co/api/people/1')
+    //     fetch('https://swapi.dev/api/people/1')
     //         .then((response) => {
     //             return response.json();
     //         })
@@ -274,6 +277,36 @@
     // getColor().then(response => response.json()).then(data => console.log(data));
     //
 
+
+
+
+
+    //============quick exercise=============//
+
+
+    function successIfEvenUTCSecond() {
+        return new Promise((resolve, reject) => {
+            setTimeout(function() {
+                const second = new Date().getUTCSeconds();
+                if (second % 2 === 0) {
+                    resolve(second);
+                } else {
+                    reject(second);
+                }
+            }, 2000);
+        });
+    }
+
+    const aPromise = successIfEvenUTCSecond().then(data => {
+        console.log(`${data} is an even number!`);
+    }).catch(error => {
+        console.error(`${error} is an odd number!`)
+    });
+
+    console.log(aPromise);
+
+    // TODO: if aPromise resolves, console.log 'VALUE_HERE is an even number!'
+    // TODO: if aPromise rejects, console.error 'VALUE_HERE is an odd number!'
 
 
 

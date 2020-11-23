@@ -86,3 +86,38 @@ request.catch(message => console.log('Promise rejected!', message));
 
 
 
+/*
+=========================================
+
+JS PROMISES PROVIDE A CLEANER SYNTAX FOR ASYNCHRONOUS CALL BACKS AND FUNCTIONS
+
+JS promises are a value that represents an asynch action that may be in pending, fulfilled or rejected states
+provides syntax that exposes the returned value when fulfilled or rejected
+avoids "callback hell" by using flatter syntax
+
+Web dev constantly deals with asynch actions...
+    making a request to a RESTful api
+    download large assets
+    loading the document
+    timed actions
+    reading and writing files
+    etc.....
+    frequently used in other libraries
+
+the jqXhr object from jQuery AJAX requests is similar to Promises
+
+Creating and using JS promises
+fetch("url").then((this) => { do this} . catch((this) => { if it fails}
+
+
+
+
+
+
+
+
+
+
+
+
+ */
