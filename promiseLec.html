@@ -298,9 +298,9 @@
     }
 
     const aPromise = successIfEvenUTCSecond().then(data => {
-        console.log(`VALUE_HERE : ${data} is an even number!`);
-    }).catch(data => {
-        console.log(`VALUE_HERE : ${data} is an odd number!`)
+        console.log(`${data} is an even number!`);
+    }).catch(error => {
+        console.error(`${error} is an odd number!`)
     });
 
     console.log(aPromise);
