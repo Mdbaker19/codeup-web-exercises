@@ -14,12 +14,26 @@ $(document).ready(function (){
 
 
 
-    wait("ww").then((data) => console.log(data)).catch((err) => console.error(err));
-    wait("'''==;;").then((data) => console.log(data)).catch((err) => console.error(err));
-    wait("   -jj ").then((data) => console.log(data)).catch((err) => console.error(err));
-    wait(1000).then((data) => console.log(data)).catch((err) => console.error(err));
-    wait(3000).then((data) => console.log(data)).catch((err) => console.error(err));
-    wait(6000).then((data) => console.log(data)).catch((err) => console.error(err));
-    wait(8000).then((data) => console.log(data)).catch((err) => console.error(err));
-    wait(9500).then((data) => console.log(data)).catch((err) => console.error(err));
+    // wait("ww").then((data) => console.log(data)).catch((err) => console.error(err));
+    // wait("'''==;;").then((data) => console.log(data)).catch((err) => console.error(err));
+    // wait("   -jj ").then((data) => console.log(data)).catch((err) => console.error(err));
+    // wait(1000).then((data) => console.log(data)).catch((err) => console.error(err));
+    // wait(3000).then((data) => console.log(data)).catch((err) => console.error(err));
+    // wait(6000).then((data) => console.log(data)).catch((err) => console.error(err));
+    // wait(8000).then((data) => console.log(data)).catch((err) => console.error(err));
+    // wait(9500).then((data) => console.log(data)).catch((err) => console.error(err));
+
+
+
+    const baseUrl = "https://api.github.com";
+
+    fetch(`${baseUrl}/events`, {headers: {'Authorization': gitHubToken}}).then((response) => {
+        return response.json();
+    }).then(data => {
+        matt.log(data);
+    });
+
+
+
+
 });
