@@ -110,8 +110,34 @@ Creating and using JS promises
 fetch("url").then((this) => { do this} . catch((this) => { if it fails}
 
 
+What are JS promises?
+JS PROMISES PROVIDE A CLEANER SYNTAX FOR ASYNCHRONOUS CALL BACKS AND FUNCTIONS
 
 
+What are the three states of a promise?
+pending: the event has not yet happened.
+resolved: the event has happened successfully.
+rejected: the event has happened, and an error condition occurred.
+
+Why are they useful?
+they provide a way to have functions and fetch requests to run asynchronously in the background without blocking other code from
+running
+
+How can a JS promise be ‘handled’?
+.then and .catch
+
+What is promise chaining?
+when a return value of a promise is treated as a promise, a .then method can be added on to resolve the returned promise
+
+How do JS promises relate to what we have covered at Codeup previously?
+to allow AJAX request to resolve more asynchronously
+
+What is the difference between Promise.all() and Promise.race()?
+Promise.all: accepts an array of promises, and resolves when all the individual promises have resolved.
+Promise.race: accepts an array of promises, and resolves when the first promise resolves
+
+How do promises relate to the Fetch API?
+a fetch request returns a promise representing the AJAX request
 
 
 

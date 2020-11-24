@@ -52,9 +52,14 @@ $(document).ready(function (){
         let html = `<div>`;
         html+= `<h1>${name} made a ${data[0].type} to : </h1>`;
         html+=`<h3>${data[0].repo.name} at : </h3>`;
+        html+=`<h3>${date(data[0].created_at)}</h3>`;
         html+=`<h3>${getTime(data[0].created_at)}</h3>`;
         html+=`</div>`;
         return html;
+    }
+
+    function date(input){
+        return input.substring(0, 10);
     }
 
     function getTime(input){
