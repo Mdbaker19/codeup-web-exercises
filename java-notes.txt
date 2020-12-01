@@ -1,0 +1,55 @@
+================================= JAVA INTRO READING QUESTIONS
+
+
+What is the difference between a .java and .class file?
+
+    .JAVA FILE IS THE SOURCE CODE IN PLAIN TEXT HUMAN READABLE CODE
+    .CLASS IS THE EXTENSION TO THE FILE MAKING THE .JAVA INTO BYTECODE
+
+
+
+Why are we using an IDE (IntelliJ) instead of a simple text editor for writing Java code?
+
+    CAN CATCH SMALL MISTAKES, JAVA IS A STRICT LANGUAGE
+
+    IDE WILL RUN AND COMPILE THE CODE IN ONE STEP
+
+
+What is the difference between a JRE and a JDK?
+
+
+    JRE IS NECESSARY TO -RUN- JAVA APPLICATIONS
+
+    JDK IS NECESSARY TO -CREATE AND BUILD- JAVA APPLICATIONS HAS JRE IN IT
+
+
+
+
+Are we currently learning about JavaSE, JavaEE, JavaME, or JavaFX?
+
+    JAVA SE AND JAVA EE
+    IT IS GOOD TO HAVE A GENERAL UNDERSTANDING OF THE REMAINING -ME- AND -FX-
+
+
+
+
+What are some key differences between JavaScript and Java?
+
+    JAVA IS COMPILED AND JS IS INTERPRETED
+    JAVA IS STATICALLY TYPED, JS IS DYNAMIC TYPING
+    JAVA HAS MORE FOCS ON OBJECTS AND THEY ARE DEFINED AND USED DIFFERENTLY
+
+
+
+Describe in some detail the process by which a Java program is able to run on an operating system.
+
+    SOURCE CODE IS WRITTEN IN .JAVA FILE, SOURCE CODE IS COMPILED WITH A JAVAC TOOL, OUTPUT IS A CLASS EXTENSION
+    CONTAINING JVM BYTECODE
+    COMPILE TIME ERRORS WILL BE ENCOUNTERED HERE
+    COMPILED CODE RUNS ON THE JVM AND INTERPRETS IT INTO MACHINE CODE
+
+
+
+Why is Java touted as a “write once, run anywhere” language?
+
+ONCE JAVA IS COMPILED IT CAN BE RUN ANYWHERE, THE .CLASS FILE IS UNIVERSAL TO RUN ON ANY JVM
