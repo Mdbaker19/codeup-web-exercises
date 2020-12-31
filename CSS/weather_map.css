@@ -8,7 +8,7 @@ body{
 }
 .heading{
     width: 100%;
-    background-color: #1f5673;
+    background-color: #1e0f0f;
     height: 30vh;
     display: flex;
     justify-content: space-between;
@@ -87,6 +87,7 @@ body{
     align-items: center;
     border: 2px solid rgba(28, 15, 19, .7);
     border-radius: 15px;
+    color: #cbcbcb
 }
 #largeArea{
     display: none;
@@ -108,6 +109,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: #cbcbcb
 }
 .noShow{
     display: none;
@@ -123,13 +125,14 @@ body{
     border-radius: 5px;
 }
 #timeHead{
-    font-size: 18px;
+    font-size: 17px;
 }
 #time{
     font-size: 22px;
 }
 .clock{
     height: 50%;
+    color: #bbbaba;
 }
 .timeArea{
     height: 5vh;
@@ -172,7 +175,7 @@ span{
         height: 7vh;
     }
     #timeHead{
-        font-size: 16px;
+        font-size: 15px;
     }
     #time{
         font-size: 20px;
@@ -215,7 +218,7 @@ span{
         font-size: 18px;
     }
     #timeHead{
-        font-size: 14px;
+        font-size: 13px;
     }
 }
 @media screen and (min-width: 1400px){

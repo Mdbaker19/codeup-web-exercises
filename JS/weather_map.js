@@ -147,7 +147,7 @@ $(document).ready(function (){
         });
         $("body").on("click", "#close", function(){
             $(".noShow").css("display", "none");
-            $("#largeArea").fadeOut(300);
+            $("#largeArea").fadeOut(200);
         });
     }
 
@@ -160,23 +160,22 @@ $(document).ready(function (){
     }
 
     function render (data, i){
-        let html = `<div class="weatherCard">`;
-        html += `<img src="http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}.png" alt="icon">`;
-        html += `<p class="weekday">${weekDay(data.daily[i].dt)}</p>`;
-        html += `<p class="head">${timeConverter(data.daily[i].dt + data.timezone_offset)}</p>`;
-        html += `<p class="description descriptionHead">Description</p>`;
-        html += `<p class="description long"><span>${capitalizeWords(data.daily[i].weather[0].description)}</span></p>`;
-        html += `<p class="description">H: <span>${data.daily[i].temp.max}°</span></p>`;
-        html += `<p class="description">L: <span>${data.daily[i].temp.min}°</span></p>`;
-        html += `<p class="description">Humidity: <span>${data.daily[i].humidity}</span></p>`;
-        html += `<p class="description long">Wind speed: <span>${data.daily[i].wind_speed}/mph</span> <span>${windDir(data.daily[i].wind_deg)}</span></p>`;
-        html += `<p class="description noShow">Pressure: <span>${data.daily[i].pressure}</span></p>`;
-        html += `<p class="description noShow">Sun rise: <span>${clockTime(data.daily[i].sunrise)}</span></p>`;
-        html += `<p class="description noShow">Sun set: <span>${clockTime(data.daily[i].sunset)}</span></p>`;
-        html += `<p class="description noShow">UVI: <span>${data.daily[i].uvi}</span></p>`;
-        html += `<p class="description noShow">Day feels like: <span>${data.daily[i].feels_like.day}</span></p>`;
-        html += `</div>`;
-        return html;
+        return `<div class="weatherCard">;
+                        <img src="http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}.png" alt="icon">;
+                        <p class="weekday">${weekDay(data.daily[i].dt)}</p>;
+                        <p class="head">${timeConverter(data.daily[i].dt + data.timezone_offset)}</p>;
+                        <p class="description descriptionHead">Description</p>;
+                        <p class="description long"><span>${capitalizeWords(data.daily[i].weather[0].description)}</span></p>;
+                        <p class="description">H: <span>${data.daily[i].temp.max}°</span></p>;
+                        <p class="description">L: <span>${data.daily[i].temp.min}°</span></p>;
+                        <p class="description">Humidity: <span>${data.daily[i].humidity}</span></p>;
+                        <p class="description long">Wind speed: <span>${data.daily[i].wind_speed}/mph</span> <span>${windDir(data.daily[i].wind_deg)}</span></p>;
+                        <p class="description noShow">Pressure: <span>${data.daily[i].pressure}</span></p>;
+                        <p class="description noShow">Sun rise: <span>${clockTime(data.daily[i].sunrise)}</span></p>;
+                        <p class="description noShow">Sun set: <span>${clockTime(data.daily[i].sunset)}</span></p>;
+                        <p class="description noShow">UVI: <span>${data.daily[i].uvi}</span></p>;
+                        <p class="description noShow">Day feels like: <span>${data.daily[i].feels_like.day}</span></p>;
+                    </div>`;
     }
 
 
